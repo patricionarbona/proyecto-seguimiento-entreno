@@ -10,7 +10,7 @@ function CartaEjercicio() {
         <>
             <div className="relative bg-slate-200 h-96 w-80 flex flex-col items-center justify-center rounded-2xl">
                 <h2>alternate lateral pulldown</h2>
-                <img className="h-5 w-5" src={rutaImg} alt={"un hombre haciendo " + nombreEjercicio}/>
+                <img className="h-28 w-28" src={rutaImg} alt={"un hombre haciendo " + nombreEjercicio}/>
                 <h3>Observaciones del ejercicio</h3>
                 <p>Hacerlo con cariño</p>
                 <div>
@@ -18,7 +18,7 @@ function CartaEjercicio() {
                 </div>
                 <h3>Observaciones del entreno</h3>
                     <textarea name="" id="" cols="10" rows="4"></textarea>
-                <button>Hecho</button>
+                <button className="bg-gray-800 text-gray-100 px-4 py-2 rounded-lg text-center hover:bg-gray-700 ring-1 ring-gray-500 mt-10" >Hecho</button>
             </div>
         </>
     )
