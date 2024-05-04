@@ -8,7 +8,7 @@ function CartaEjercicio() {
 
     return(
         <>
-            <div className="relative bg-slate-200 h-96 w-80 flex flex-col items-center justify-center rounded-2xl">
+            <div className="relative bg-slate-200 h-96 w-80 flex flex-col items-center justify-center rounded-2xl shrink-0">
                 <h2>alternate lateral pulldown</h2>
                 <img className="h-28 w-28" src={rutaImg} alt={"un hombre haciendo " + nombreEjercicio}/>
                 <h3>Observaciones del ejercicio</h3>

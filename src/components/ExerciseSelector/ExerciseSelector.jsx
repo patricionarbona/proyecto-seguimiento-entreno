@@ -23,7 +23,7 @@ function ExerciseSelector() {
             </header>
             <main>
                 <h2>Tus ejercicios</h2>
-                <div className="bg-teal-800">
+                <div className="bg-teal-800 flex gap-4">
                     <CartaEjercicio />
                     <CartaEjercicio />
                     <CartaEjercicio />
