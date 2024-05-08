@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rotate-y-25 {
+    transform: rotateY(25deg);
+} 
+.rotate-x-25 {
+    transform: rotateX(25deg);
+} 
+.rotate-y-45 {
+    transform: rotateY(45deg);
+} 
+.rotate-x-45 {
+    transform: rotateX(45deg);
+} 
+
+.perspective-left {
+    transform: perspective(1800px) rotateY(25deg);
+}
+.perspective-right {
+    transform: perspective(1800px) rotateY(-25deg);
+}

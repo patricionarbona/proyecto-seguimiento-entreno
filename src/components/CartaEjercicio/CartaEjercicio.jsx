@@ -1,14 +1,18 @@
 import InputNum from "../InputNum/InputNum"
 
 
-function CartaEjercicio() {
+function CartaEjercicio({estilo =""}) {
 
     const rutaImg = "https://v2.exercisedb.io/image/I4XMjCBFhqaGoJ"
     const nombreEjercicio = "alternate lateral pulldown"
 
     return(
         <>
-            <div className="relative bg-slate-200 h-96 w-80 flex flex-col items-center justify-center rounded-2xl shrink-0">
+            <div 
+                className= {
+                    "relative bg-slate-200 h-96 w-80 flex flex-col items-center justify-center rounded-2xl shrink-0"
+                    + estilo
+            }>
                 <h2>alternate lateral pulldown</h2>
                 <img className="h-28 w-28" src={rutaImg} alt={"un hombre haciendo " + nombreEjercicio}/>
                 <h3>Observaciones del ejercicio</h3>

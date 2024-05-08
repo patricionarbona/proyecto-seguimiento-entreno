@@ -1,0 +1,61 @@
+{
+    "nombre": {
+        "datosOrganismo" : {
+            "grupoFuncional" : null,
+            "grupoOrganismo" : null,
+            "autor" : null,
+            "year" : null,
+            "imagen" : null,
+            "datosObservacion" : 
+                [ 
+                    {
+                        "nombreObservacion" : null, 
+                        "imagen" : null,
+                        "magnitud" : null,
+                        "detalleObservacion" : null,
+                        "descripcion" : null,
+                        "tecnicaMicroscopica" : null,
+                        "condicionObservacion" : null
+                    }
+                ],
+            "descripcion" : null
+        },
+        "caracteristicas" :  [
+                {
+                    "taxonomicas" : {
+                        "grupo": null,
+                        "phylum" : null,
+                        "subphyllum" : null,
+                        "clase" : null,
+                        "subclase" : null,
+                        "orden" : null,
+                        "subOrden" : null,
+                        "familia" : null,
+                        "genero" : null
+                    }
+                }
+                ,
+                {
+                    "funcionales" : [
+                        {
+                            "tipo" : null,
+                            "formaCorporal" : null,
+                            "movimientosLocomotores" : null,
+                            "estructurasEspecializadas" : null,
+                            "claveIdentificativa" : null,
+                            "tamaño" : null
+                        }
+                    ]
+                },
+                {
+                    "ecológicas" : {
+                        "alimentacion" : null,
+                        "bioindicadoresAsociados": null,
+                        "observaciones" : null,
+                        "otrasObservaciones" : null,
+                        "nota" : null
+                    }
+                }
+        ]
+    } 
+}

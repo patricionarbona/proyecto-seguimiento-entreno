@@ -23,10 +23,10 @@ function ExerciseSelector() {
             </header>
             <main>
                 <h2>Tus ejercicios</h2>
-                <div className="bg-teal-800 flex gap-4">
+                <div className="bg-teal-800 flex gap-8">
+                    <CartaEjercicio estilo=" perspective-right w-60" />
                     <CartaEjercicio />
-                    <CartaEjercicio />
-                    <CartaEjercicio />
+                    <CartaEjercicio estilo=" perspective-left w-60"/>
                 </div>
             </main>
         </>

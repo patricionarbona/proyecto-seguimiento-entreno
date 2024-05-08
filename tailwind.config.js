@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
       
-      }
+      },
     },
   },
   plugins: [],
