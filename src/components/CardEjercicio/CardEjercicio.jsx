@@ -22,26 +22,32 @@ export default function CardEjercicio() {
     }
 
     return (
-        <div
-            onClick={handleVoltear} 
-        className="flex min-h-screen flex-col justify-center bg-slate-100">
-            <div className="group h-96 w-96 [perspective:1000px]">
-                <div 
-                className={"relative h-full w-full rounded-xl shadow-xl [transform-style:preserve-3d]  [backface-visibility:hidden] [transition:1s] " + (isVolteado? "[transform:rotateY(180deg)]":"")}>
-                    <div className="absolute">
+        <div className="h-96 w-96 relative [perspective:1000px] ">
+            <div className={"absolute h-full w-full [transition:1s] [transform-style:preserve-3d]" + (isVolteado? " [transform:rotateY(-180deg)]":"")}>
+                <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] flex flex-col justify-center">
+                    <button
+                        onClick={handleVoltear} 
+                    className={"absolute top-0 right-0 " + (isVolteado? "invisible":"visible")}>
+                        A
+                    </button>
+                    <div className="">
                         <h3>{nombreEjercicio}</h3>
                         <img
                             className="h-20 w-20" 
                             src={rutaImg} alt="" />
                         <button>
-                            
+                            Añadir
                         </button>
                     </div>
-                    {/* Parte de atras, tiene que tener el mismo estilo que el frontal */}
-                    <div className="absolute h-full w-full rounded-xl shadow-xl [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                        <h3>Instrucciones</h3>
-                        <p>{recomendacion.join(' ')}</p>
-                    </div>
+                </div>
+                <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <button
+                    onClick={handleVoltear}
+                     className={"absolute top-0 right-0 " + (isVolteado? "visible":"invisible")}>
+                        B
+                    </button>
+                    <h3>Instrucciones</h3>
+                    <p>{recomendacion.join(' ')}</p>
                 </div>
             </div>
         </div>
