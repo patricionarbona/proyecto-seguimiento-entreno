@@ -28,13 +28,42 @@ export default function CardEjercicio() {
                     <button
                         onClick={handleVoltear} 
                     className={"absolute top-0 right-0 " + (isVolteado? "invisible":"visible")}>
-                        A
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            strokeWidth="1.5" 
+                            stroke="currentColor" 
+                            className="w-6 h-6"
+                        >
+                            <path 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                d="m15 15 6-6m0 0-6-6m6 6H9a6 6 0 0 0 0 12h3" 
+                            />
+                        </svg>
+                        {/* <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            strokeWidth="1.5" 
+                            stroke="currentColor" 
+                            className="w-6 h-6"
+                        >
+                            <path 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" 
+                            />
+                        </svg> */}
                     </button>
                     <div className="">
                         <h3>{nombreEjercicio}</h3>
                         <img
                             className="h-20 w-20" 
                             src={rutaImg} alt="" />
+                        <h4>Músculos implicados</h4>
+                        <p>{musculo}</p>
                         <button>
                             Añadir
                         </button>
@@ -44,10 +73,37 @@ export default function CardEjercicio() {
                     <button
                     onClick={handleVoltear}
                      className={"absolute top-0 right-0 " + (isVolteado? "visible":"invisible")}>
-                        B
+                        {/* <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            strokeWidth="1.5" 
+                            stroke="currentColor" 
+                            className="w-6 h-6"
+                        >
+                            <path 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" 
+                            />
+                        </svg> */}
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            strokeWidth="1.5" 
+                            stroke="currentColor" 
+                            className="w-6 h-6"
+                        >
+                            <path 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                d="m15 15 6-6m0 0-6-6m6 6H9a6 6 0 0 0 0 12h3" 
+                            />
+                        </svg>
                     </button>
                     <h3>Instrucciones</h3>
-                    <p>{recomendacion.join(' ')}</p>
+                    <p className="leading-8 text-ellipsis overflow-hidden">{recomendacion.join(' ')}</p>
                 </div>
             </div>
         </div>
