@@ -16,31 +16,32 @@ export default function RegistrarPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        // Agregar el nombre "getUsuarios" al formData
-        formData.getUsuarios = "getUsuarios";
+        const formData = new FormData();
+        formData.append('name', 'df');
+        formData.append('email', 'fct@sialitech.com');
+        formData.append('password', 'pass');
+        formData.append('getUsuarios', 'getUsuarios');
 
         const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/registro.php", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
+            body: formData
         });
 
         if (response.ok) {
             const responseData = await response.json();
-            setResponseMessage(responseData.message); // Mostrar el mensaje de respuesta
-            console.log("Datos enviados correctamente");
+            setResponseMessage(responseData.message);
+            console.log("Usuarios recuperados:", responseData.message);
         } else {
-            const errorMessage = await response.text(); // Obtener el mensaje de error HTML
-            console.error("Error al enviar los datos:", errorMessage);
-            // Puedes mostrar el mensaje de error al usuario o realizar alguna otra acción
+            console.error("Error al enviar los datos:", await response.text());
         }
     } catch (error) {
         console.error("Error de red:", error);
     }
-    console.log(formData);
 };
+
+
+
+
 
   
 
