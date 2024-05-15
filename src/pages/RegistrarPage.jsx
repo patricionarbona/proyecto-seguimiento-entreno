@@ -16,7 +16,7 @@ export default function RegistrarPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("./php/registro.php", {
+      const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/registro.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -42,6 +42,7 @@ export default function RegistrarPage() {
 
   return (
     <div>
+      <a href="http://localhost/tfg/proyecto-seguimiento-entreno/src/php/registro.php">Prueba</a>
       <form onSubmit={handleSubmit}>
         <label htmlFor="inputName">Nombre:</label>
         <input
