@@ -30,6 +30,7 @@ export default function RegistrarPage() {
         if (response.ok) {
             const responseData = await response.json();
             setResponseMessage(responseData.message);
+            console.log(responseData[0])
             console.log("Usuarios recuperados:", responseData.message);
         } else {
             console.error("Error al enviar los datos:", await response.text());
