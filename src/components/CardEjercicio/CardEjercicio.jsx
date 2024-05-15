@@ -22,12 +22,12 @@ export default function CardEjercicio() {
     }
 
     return (
-        <div className="h-96 w-96 relative [perspective:1000px] ">
-            <div className={"absolute h-full w-full [transition:1s] [transform-style:preserve-3d]" + (isVolteado? " [transform:rotateY(-180deg)]":"")}>
-                <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] flex flex-col justify-center">
+        <div className="relative h-72 w-48  [perspective:1000px] ">
+            <div className={"absolute h-full w-full [transition:1s] [transform-style:preserve-3d] " + (isVolteado? " [transform:rotateY(-180deg)]":"")}>
+                <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] flex flex-col justify-center bg-slate-300 p-0 ">
                     <button
                         onClick={handleVoltear} 
-                    className={"absolute top-0 right-0 " + (isVolteado? "invisible":"visible")}>
+                    className={"absolute top-2 right-3 " + (isVolteado? "invisible":"visible")}>
                         <svg 
                             xmlns="http://www.w3.org/2000/svg" 
                             fill="none" 
@@ -69,10 +69,10 @@ export default function CardEjercicio() {
                         </button>
                     </div>
                 </div>
-                <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col bg-slate-300">
                     <button
                     onClick={handleVoltear}
-                     className={"absolute top-0 right-0 " + (isVolteado? "visible":"invisible")}>
+                     className={"absolute top-2 right-3 " + (isVolteado? "visible":"invisible")}>
                         {/* <svg 
                             xmlns="http://www.w3.org/2000/svg" 
                             fill="none" 
@@ -103,7 +103,7 @@ export default function CardEjercicio() {
                         </svg>
                     </button>
                     <h3>Instrucciones</h3>
-                    <p className="leading-8 text-ellipsis overflow-hidden">{recomendacion.join(' ')}</p>
+                    <p className="leading-8 text-ellipsis overflow-hidden h-5/6">{recomendacion.join(' ')}</p>
                 </div>
             </div>
         </div>

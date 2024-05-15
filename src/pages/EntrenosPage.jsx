@@ -1,4 +1,5 @@
-import Carousel from "../components/Carousel/Carousel"
+import Carousel from "../components/Carousel/Carousel.jsx"
+import CardEjercicio from "../components/CardEjercicio/CardEjercicio.jsx"
 
 const slides = [
     "../../public/imgs/edgar-chaparro-sHfo3WOgGTU-unsplash.jpg",
@@ -10,15 +11,16 @@ const slides = [
 export default function EntrenosPage() {
     return (
         <>
-    <div>
-        Soy Entrenos
-    </div>
-    <Carousel>
+            <div>
+                Soy Entrenos
+            </div>
+            {/* <Carousel>
         {slides.map((s, index) => (
             <img key={index} src={s} alt={`Slide ${index}`} />
         ))}
-    </Carousel>
-</>
+    </Carousel> */}
+            <CardEjercicio />
+        </>
 
     )
 }
