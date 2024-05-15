@@ -16,33 +16,38 @@ export default function RegistrarPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/registro.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      });
-  
-      if (response.ok) {
-        const responseData = await response.json();
-        setResponseMessage(responseData.message); // Mostrar el mensaje de respuesta
-        console.log("Datos enviados correctamente");
-      } else {
-        const errorMessage = await response.text(); // Obtener el mensaje de error HTML
-        console.error("Error al enviar los datos:", errorMessage);
-        // Puedes mostrar el mensaje de error al usuario o realizar alguna otra acción
-      }
+        // Agregar el nombre "getUsuarios" al formData
+        formData.getUsuarios = "getUsuarios";
+
+        const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/registro.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            const responseData = await response.json();
+            setResponseMessage(responseData.message); // Mostrar el mensaje de respuesta
+            console.log("Datos enviados correctamente");
+        } else {
+            const errorMessage = await response.text(); // Obtener el mensaje de error HTML
+            console.error("Error al enviar los datos:", errorMessage);
+            // Puedes mostrar el mensaje de error al usuario o realizar alguna otra acción
+        }
     } catch (error) {
-      console.error("Error de red:", error);
+        console.error("Error de red:", error);
     }
     console.log(formData);
-  };
+};
+
   
 
   return (
     <div>
       <a href="http://localhost/tfg/proyecto-seguimiento-entreno/src/php/registro.php">Prueba</a>
+      <a href="http://localhost/tfg/proyecto-seguimiento-entreno/src/php/conexion.php">usuarios</a>
       <form onSubmit={handleSubmit}>
         <label htmlFor="inputName">Nombre:</label>
         <input
