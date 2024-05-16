@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import getUsuarios from "../utils/Peticiones";
+import getUsuarios, { emailExiste } from "../utils/Peticiones";
 
 export default function RegistrarPage() {
   const [formData, setFormData] = useState({
@@ -16,18 +16,38 @@ export default function RegistrarPage() {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
-  try {
-    const response = await getUsuarios(); // Llama a la función getUsuarios
 
+
+  // primero compruebo si existe ese email
+  try {
+    console.log(formData)
+    const response = await emailExiste(formData.email); // Llama a la función getUsuarios
     if (response.ok) {
       const responseData = await response.json();
       setResponseMessage("Usuarios recuperados:", responseData);
-      console.log(responseData)
+      console.log(responseData.length)
+      responseData.length !== 0 ? setResponseMessage("existe") : setResponseMessage("")
     } else {
       console.error("Error al recuperar los usuarios:", await response.text());
     }
   } catch (error) {
     console.error("Error de red:", error);
+  }
+
+  if(responseMessage !== "") {
+    try {
+      const response = await getUsuarios(); // Llama a la función getUsuarios
+
+      if (response.ok) {
+        const responseData = await response.json();
+        setResponseMessage("Usuarios recuperados:", responseData);
+        console.log(responseData)
+      } else {
+        console.error("Error al recuperar los usuarios:", await response.text());
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+    }
   }
 };
 
