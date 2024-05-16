@@ -53,5 +53,5 @@ CREATE TABLE entreno_historico (
     repeticiones CHAR(100),
     observacion CHAR(255),
     FOREIGN KEY (fk_entreno) REFERENCES entreno(id),
-    FOREIGN KEY (fk_ejercicio) REFERENCES Ejercicios(id)
+    FOREIGN KEY (fk_ejercicio) REFERENCES ejercicios(id)
 );
