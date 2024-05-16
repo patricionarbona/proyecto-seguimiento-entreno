@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import getUsuarios from "../utils/Peticiones";
 
 export default function RegistrarPage() {
   const [formData, setFormData] = useState({
@@ -13,38 +14,22 @@ export default function RegistrarPage() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-        const formData = new FormData();
-        formData.append('name', 'df');
-        formData.append('email', 'fct@sialitech.com');
-        formData.append('password', 'pass');
-        formData.append('getUsuarios', 'getUsuarios');
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await getUsuarios(); // Llama a la función getUsuarios
 
-        const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/registro.php", {
-            method: "POST",
-            body: formData
-        });
-
-        if (response.ok) {
-            const responseData = await response.json();
-            setResponseMessage(responseData.message);
-            console.log(responseData[0])
-            console.log("Usuarios recuperados:", responseData.message);
-        } else {
-            console.error("Error al enviar los datos:", await response.text());
-        }
-    } catch (error) {
-        console.error("Error de red:", error);
+    if (response.ok) {
+      const responseData = await response.json();
+      setResponseMessage("Usuarios recuperados:", responseData);
+      console.log(responseData)
+    } else {
+      console.error("Error al recuperar los usuarios:", await response.text());
     }
+  } catch (error) {
+    console.error("Error de red:", error);
+  }
 };
-
-
-
-
-
-  
 
   return (
     <div>
