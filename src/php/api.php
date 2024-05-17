@@ -50,25 +50,35 @@ function emailExiste($email) {
     echo json_encode($datos);
 }
 
-function crearUsuario() {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $password_hashed = hash('sha256', $password);    
-    $nombre = $_POST['nombre'];
-    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
-    $resultado = $conexion->prepare("INSERT INTO `usuario` (`id`, `email`, `password`, `nombre`, `admin`) VALUES (NULL, ?, ?, ?, '0');");
-    $resultado->execute([$email,$password_hashed,$nombre]);
-    $datos = array();
+// function crearUsuario() {
+//     $email = $_POST['email'];
+//     $password = $_POST['password'];
+//     $password_hashed = hash('sha256', $password);    
+//     $nombre = $_POST['nombre'];
+//     $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+//     $resultado = $conexion->prepare("INSERT INTO `usuario` (`id`, `email`, `password`, `nombre`, `admin`) VALUES (NULL, ?, ?, ?, '0');");
+//     $resultado->execute([$email,$password_hashed,$nombre]);
+//     $datos = array();
     
-    if($resultado-> rowCount() > 0) {
-        $datos[] = ["message" => "se creo el usuario"];
-    }
+//     if($resultado-> rowCount() > 0) {
+//         $datos[] = ["message" => "se creo el usuario"];
+//     }
 
-    header('Content-Type: application/json');
-    echo json_encode($datos);
-}
+//     header('Content-Type: application/json');
+//     echo json_encode($datos);
+// }
 
-
+// Querys para gestionar la BD
+function comprobarEmail($email){}
+function crearUsuario($datosUsuario){}
+function crearEjercicio($datosEjercicio){}
+function recuperarEjercicios(){}
+function recuperarEjerciciosGrupo($grupo){}
+function crearEntreno($datosEntreno){}
+function addEjercicioEntreno($ejercicio){}
+function guardarEntrenoEjercicio($datosEjercicio){}
+function recuperarHistorico(){}
+function recuperarHistoricoEjercicio($ejercicio){}
 
  
 ?>
