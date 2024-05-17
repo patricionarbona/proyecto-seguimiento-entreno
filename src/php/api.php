@@ -70,7 +70,6 @@ function emailExiste($email) {
 
 // Querys para gestionar la BD
 function comprobarEmail($email){
-    $email = $_POST['comprobarEmail'];
     $email = json_decode($email,true);
     $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
     $resultado = $conexion->prepare("SELECT * FROM usuario WHERE email = ?");
@@ -81,7 +80,6 @@ function comprobarEmail($email){
     echo json_encode($datos);
 }
 function crearUsuario($datosUsuario){
-    $datosUsuario = $_POST['crearUsuario'];
     $datosUsuario = json_decode($datosUsuario,true);
 
     $nombre = $datosUsuario['nombre'];
@@ -93,6 +91,44 @@ function crearUsuario($datosUsuario){
     $resultado = $conexion->prepare("INSERT INTO usuario (id, email, password, nombre, admin) VALUES (NULL, ? , ? , ? , '0');");
     $resultado->execute([$email, $password, $nombre]);
     $datos = $resultado ? [ "message" => "añadido usuario"] : [ "message" => "no añadido" ];
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
+}
+function recuperarUsuarios() {
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("SELECT * FROM usuario");
+    $resultado->execute();
+    $datos = array();
+    while($fila = $resultado -> fetch()) {
+        $usuario = array(
+            'id' => $fila['id'],
+            'nombre' => $fila['nombre'],
+            'email' => $fila['email'],
+            'cargo' => $fila['admin'],
+        );
+
+        $datos[] = $usuario;
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
+}
+function recuperarUsuario($emailUsuario) {
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("SELECT * FROM usuario WHERE email = ?");
+    $resultado->execute($emailUsuario);
+    $datos = array();
+    while($fila = $resultado -> fetch()) {
+        $usuario = array(
+            'id' => $fila['id'],
+            'nombre' => $fila['nombre'],
+            'email' => $fila['email'],
+            'cargo' => $fila['admin'],
+        );
+
+        $datos[] = $usuario;
+    }
 
     header('Content-Type: application/json');
     echo json_encode($datos);
