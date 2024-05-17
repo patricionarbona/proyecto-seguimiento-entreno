@@ -80,7 +80,23 @@ function comprobarEmail($email){
     header('Content-Type: application/json');
     echo json_encode($datos);
 }
-function crearUsuario($datosUsuario){}
+function crearUsuario($datosUsuario){
+    $datosUsuario = $_POST['crearUsuario'];
+    $datosUsuario = json_decode($datosUsuario,true);
+
+    $nombre = $datosUsuario['nombre'];
+    $email = $datosUsuario['email'];
+    $password = $datosUsuario['password'];
+    $password = hash('sha256', $password);
+
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("INSERT INTO usuario (id, email, password, nombre, admin) VALUES (NULL, ? , ? , ? , '0');");
+    $resultado->execute([$email, $password, $nombre]);
+    $datos = $resultado ? [ "message" => "añadido usuario"] : [ "message" => "no añadido" ];
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
+}
 function crearEjercicio($datosEjercicio){}
 function recuperarEjercicios(){}
 function recuperarEjerciciosGrupo($grupo){}
