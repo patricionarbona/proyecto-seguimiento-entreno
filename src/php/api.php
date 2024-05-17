@@ -69,7 +69,17 @@ function emailExiste($email) {
 // }
 
 // Querys para gestionar la BD
-function comprobarEmail($email){}
+function comprobarEmail($email){
+    $email = $_POST['comprobarEmail'];
+    $email = json_decode($email,true);
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("SELECT * FROM usuario WHERE email = ?");
+    $resultado->execute([$email]);
+    $datos = $resultado -> rowCount() > 0 ? [ "message" => "existe"] : [ "message" => "no existe" ];
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
+}
 function crearUsuario($datosUsuario){}
 function crearEjercicio($datosEjercicio){}
 function recuperarEjercicios(){}
