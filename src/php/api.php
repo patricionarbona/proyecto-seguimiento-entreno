@@ -12,6 +12,10 @@ if(isset($_POST['emailExiste'])) {
     emailExiste($_POST['email']);
 }
 
+if(isset($_POST['crearUsuario'])) {
+    crearUsuario();
+}
+
 function obtenerUsuarios() {
     $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
     $resultado = $conexion->prepare("SELECT * FROM usuario");
@@ -47,20 +51,24 @@ function emailExiste($email) {
 }
 
 function crearUsuario() {
-    $email 
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $password_hashed = hash('sha256', $password);    
+    $nombre = $_POST['nombre'];
     $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
-    $resultado = $conexion->prepare("INSERT INTO `usuario` (`id`, `email`, `password`, `nombre`, `admin`) VALUES (NULL, ?, '?', '?', '0');");
-    $resultado->execute([$email]);
+    $resultado = $conexion->prepare("INSERT INTO `usuario` (`id`, `email`, `password`, `nombre`, `admin`) VALUES (NULL, ?, ?, ?, '0');");
+    $resultado->execute([$email,$password_hashed,$nombre]);
     $datos = array();
-    while($fila = $resultado->fetch()) {
-        $usuario = array(
-            'email' => $fila['email'],
-        );
-        $datos[] = $usuario;
+    
+    if($resultado-> rowCount() > 0) {
+        $datos[] = ["message" => "se creo el usuario"];
     }
+
     header('Content-Type: application/json');
     echo json_encode($datos);
 }
 
-INSERT INTO `usuario` (`id`, `email`, `password`, `nombre`, `admin`) VALUES (NULL, 'patricio@gmail.com', '123456', 'patricio', '1');
+
+
+ 
 ?>

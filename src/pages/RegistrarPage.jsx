@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import getUsuarios, { emailExiste } from "../utils/Peticiones";
+import { crearUsuario, emailExiste } from "../utils/Peticiones";
 
 export default function RegistrarPage() {
   const [formData, setFormData] = useState({
@@ -14,42 +14,40 @@ export default function RegistrarPage() {
     setFormData({ ...formData, [name]: value });
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-
-
-  // primero compruebo si existe ese email
-  try {
-    console.log(formData)
-    const response = await emailExiste(formData.email); // Llama a la función getUsuarios
-    if (response.ok) {
-      const responseData = await response.json();
-      setResponseMessage("Usuarios recuperados:", responseData);
-      console.log(responseData.length)
-      responseData.length !== 0 ? setResponseMessage("existe") : setResponseMessage("")
-    } else {
-      console.error("Error al recuperar los usuarios:", await response.text());
-    }
-  } catch (error) {
-    console.error("Error de red:", error);
-  }
-
-  if(responseMessage !== "") {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    const formData = new FormData();
+    formData.append('name', formData.name);
+    formData.append('email', formData.email);
+    formData.append('password', formData.password);
+  
     try {
-      const response = await getUsuarios(); // Llama a la función getUsuarios
-
+      const response = await emailExiste(formData.get('email'));
       if (response.ok) {
         const responseData = await response.json();
-        setResponseMessage("Usuarios recuperados:", responseData);
-        console.log(responseData)
+        if (responseData.length !== 0) {
+          setResponseMessage("El usuario ya existe.");
+          return;
+        }
       } else {
-        console.error("Error al recuperar los usuarios:", await response.text());
+        console.error("Error al verificar el email existente:", await response.text());
+      }
+  
+      const crearUsuarioResponse = await crearUsuario(formData);
+      if (crearUsuarioResponse.ok) {
+        const responseData = await crearUsuarioResponse.json();
+        setResponseMessage("Usuario creado correctamente.");
+      } else {
+        console.error("Error al crear el usuario:", await crearUsuarioResponse.text());
       }
     } catch (error) {
       console.error("Error de red:", error);
     }
-  }
-};
+  };
+  
+  
+  
 
   return (
     <div>
