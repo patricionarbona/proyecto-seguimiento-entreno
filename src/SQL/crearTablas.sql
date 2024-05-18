@@ -44,6 +44,14 @@ CREATE TABLE entreno_ejercicios (
     FOREIGN KEY (fk_ejercicio) REFERENCES ejercicios(id)
 );
 
+CREATE TABLE usuario_entreno (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fk_usuario INT,
+    fk_entrenos INT,
+    FOREIGN KEY (fk_usuario) REFERENCES usuario(id),
+    FOREIGN KEY (fk_entrenos) REFERENCES entreno(id)
+);
+
 CREATE TABLE entreno_historico (
     id INT AUTO_INCREMENT PRIMARY KEY,
     fk_entreno INT,

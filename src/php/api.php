@@ -214,15 +214,26 @@ function crearEntreno($datosEntreno){
     $resultado = $conexion->prepare("INSERT INTO entreno (id, fk_usuario, nombre) 
         VALUES (
             NULL,
-            (SELECT FROM usuario where email = ?) ,
+            (SELECT id FROM usuario where email = ?) ,
             ? );");
     $resultado->execute([$usuario,$nombreEntreno ]);
+    $idEntreno = $conexion -> lastInsertId();
+
+    $resultado = $conexion->prepare("INSERT INTO usuario_entreno (id, fk_usuario, fk_entrenos) 
+        VALUES (
+            NULL,
+            (SELECT id FROM usuario WHERE email = ?),
+            ? );");
+    $resultado->execute([$usuario,$idEntreno ]);
+
     $datos = $resultado ? [ "message" => "añadido entreno"] : [ "message" => "no añadido" ];
 
     header('Content-Type: application/json');
     echo json_encode($datos);
 }
-function addEjercicioEntreno($ejercicio){}
+function addEjercicioEntreno($datosEjercicio){
+
+}
 function guardarEntrenoEjercicio($datosEjercicio){}
 function recuperarHistorico(){}
 function recuperarHistoricoEjercicio($ejercicio){}
