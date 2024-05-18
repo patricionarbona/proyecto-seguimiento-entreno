@@ -207,13 +207,17 @@ function recuperarEjerciciosGrupo($grupo){
     echo json_encode($datos);
 }
 function crearEntreno($datosEntreno){
-    $usuario = $datosEntreno['usuario'];
+    $usuario = $datosEntreno['usuarioEmail'];
     $nombreEntreno = $datosEntreno['entreno'];
 
     $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
-    $resultado = $conexion->prepare("INSERT INTO usuario (id, email, password, nombre, admin) VALUES (NULL, ? , ? , ? , '0');");
-    $resultado->execute([$email, $password, $nombre]);
-    $datos = $resultado ? [ "message" => "añadido usuario"] : [ "message" => "no añadido" ];
+    $resultado = $conexion->prepare("INSERT INTO entreno (id, fk_usuario, nombre) 
+        VALUES (
+            NULL,
+            (SELECT FROM usuario where email = ?) ,
+            ? );");
+    $resultado->execute([$usuario,$nombreEntreno ]);
+    $datos = $resultado ? [ "message" => "añadido entreno"] : [ "message" => "no añadido" ];
 
     header('Content-Type: application/json');
     echo json_encode($datos);
