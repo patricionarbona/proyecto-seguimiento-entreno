@@ -133,10 +133,91 @@ function recuperarUsuario($emailUsuario) {
     header('Content-Type: application/json');
     echo json_encode($datos);
 }
-function crearEjercicio($datosEjercicio){}
-function recuperarEjercicios(){}
-function recuperarEjerciciosGrupo($grupo){}
-function crearEntreno($datosEntreno){}
+function crearEjercicio($datosEjercicio){
+    $datosEjercicio = json_decode($datosEjercicio,true);
+
+    $ejercicio = $datosEjercicio['ejercicio'];
+    $descripcion = $datosEjercicio['descripcion'];
+    $foto = $datosEjercicio['foto'];
+    $musculos = $datosEjercicio['musculos'];
+    $grupoMuscular = $datosEjercicio['grupoMuscular'];
+
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("INSERT INTO ejercicios (id, ejercicio, descripcion, foto, musculos) VALUES (NULL, ?, ?, ?, ?);");
+    $resultado->execute([$ejercicio, $descripcion, $foto, $musculos]);
+    $datos = $resultado ? [ "message" => "añadido ejercicio"] : [ "message" => "no añadido ejercicio" ];
+    
+    //insertar en ejercicios_grupo
+    $resultado = $conexion -> prepare("INSERT INTO ejercicios_grupo (id, fk_ejercicio, fk_grupo) 
+        VALUES (
+            NULL, 
+            (SELECT id FROM ejercicios WHERE ejercicio = ?), 
+            (SELECT id FROM grupo WHERE grupo = ?)
+    );");
+
+    $resultado -> execute([$ejercicio, $grupo]);
+    $datos = $resultado ? [ "message" => "añadido ejercicio"] : [ "message" => "no añadido ejercicio" ];
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
+}
+function recuperarEjercicios(){
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("SELECT * FROM ejercicios");
+    $resultado->execute();
+    $datos = array();
+    while($fila = $resultado -> fetch()) {
+        $ejercicio = array(
+            'id' => $fila['id'],
+            'ejercicio' => $fila['ejercicio'],
+            'descripcion' => $fila['descripcion'],
+            'foto' => $fila['foto'],
+            'musculos' => $fila['musculos'],
+        );
+
+        $datos[] = $ejercicio;
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
+}
+function recuperarEjerciciosGrupo($grupo){
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("SELECT e.*
+        FROM ejercicios e
+        JOIN ejercicios_grupo eg ON e.id = eg.fk_ejercicios
+        JOIN grupo g ON eg.fk_grupo = g.id
+        WHERE g.nombre = ?;
+    ");
+    $resultado->execute([$grupo]);
+    $datos = array();
+    while($fila = $resultado -> fetch()) {
+        $ejercicio = array(
+            'id' => $fila[''],
+            'ejercicio' => $fila['ejercicio'],
+            'descripcion' => $fila['descripcion'],
+            'foto' => $fila['foto'],
+            'musculos' => $fila['musculos'],
+        );
+
+        $datos[] = $ejercicio;
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
+}
+function crearEntreno($datosEntreno){
+    $usuario = $datosEntreno['usuario'];
+    $nombreEntreno = $datosEntreno['entreno'];
+
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("INSERT INTO usuario (id, email, password, nombre, admin) VALUES (NULL, ? , ? , ? , '0');");
+    $resultado->execute([$email, $password, $nombre]);
+    $datos = $resultado ? [ "message" => "añadido usuario"] : [ "message" => "no añadido" ];
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
+}
 function addEjercicioEntreno($ejercicio){}
 function guardarEntrenoEjercicio($datosEjercicio){}
 function recuperarHistorico(){}
