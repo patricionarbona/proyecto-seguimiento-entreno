@@ -251,7 +251,23 @@ function addEjercicioEntreno($datosEjercicio){
     echo json_encode($datos);
 }
 function guardarEntrenoEjercicio($datosEjercicio){
-    
+    $idEntreno = $datosEjercicio['idEntreno'];
+    $idEjercicio = $datosEjercicio['idEjercicio'];
+    $observacion = $datosEjercicio['observacion'];
+
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("INSERT INTO entreno_ejercicios (id, fk_entreno, fk_ejercicio, observacion) 
+        VALUES (
+            NULL,
+            ?,
+            ?,
+            ? );");
+    $resultado->execute([$idEntreno, $idEjercicio, $observacion ]);
+
+    $datos = $resultado ? [ "message" => "añadido entreno"] : [ "message" => "no añadido" ];
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
 }
 function recuperarHistorico(){}
 function recuperarHistoricoEjercicio($ejercicio){}
