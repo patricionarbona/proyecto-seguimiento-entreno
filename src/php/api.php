@@ -13,7 +13,11 @@ if(isset($_POST['emailExiste'])) {
 }
 
 if(isset($_POST['crearUsuario'])) {
-    crearUsuario();
+    crearUsuario($_POST['crearUsuario']);
+}
+
+if(isset($_POST['comprobarEmail'])) {
+    comprobarEmail($_POST['comprobarEmail']);
 }
 
 function obtenerUsuarios() {
@@ -79,6 +83,7 @@ function comprobarEmail($email){
     header('Content-Type: application/json');
     echo json_encode($datos);
 }
+
 function crearUsuario($datosUsuario){
     $datosUsuario = json_decode($datosUsuario,true);
 

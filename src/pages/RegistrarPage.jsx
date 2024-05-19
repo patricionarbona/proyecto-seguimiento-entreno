@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { crearUsuario, emailExiste } from "../utils/Peticiones";
+import { comprobarEmail, crearUsuario } from "../utils/Peticiones";
 
 export default function RegistrarPage() {
   const [formData, setFormData] = useState({
@@ -18,15 +18,17 @@ export default function RegistrarPage() {
     e.preventDefault();
   
     const formData = new FormData();
-    formData.append('name', formData.name);
-    formData.append('email', formData.email);
-    formData.append('password', formData.password);
-  
+    const datos = {
+      nombre : formData.name,
+      email : formData.email,
+      password : formData.password
+    }
+  console.log(datos)
     try {
-      const response = await emailExiste(formData.get('email'));
+      const response = await comprobarEmail(datos.email);
       if (response.ok) {
         const responseData = await response.json();
-        if (responseData.length !== 0) {
+        if (responseData.message === "existe") {
           setResponseMessage("El usuario ya existe.");
           return;
         }
@@ -34,13 +36,13 @@ export default function RegistrarPage() {
         console.error("Error al verificar el email existente:", await response.text());
       }
   
-      const crearUsuarioResponse = await crearUsuario(formData);
-      if (crearUsuarioResponse.ok) {
-        const responseData = await crearUsuarioResponse.json();
-        setResponseMessage("Usuario creado correctamente.");
-      } else {
-        console.error("Error al crear el usuario:", await crearUsuarioResponse.text());
-      }
+      // const crearUsuarioResponse = await crearUsuario(formData);
+      // if (crearUsuarioResponse.ok) {
+      //   const responseData = await crearUsuarioResponse.json();
+      //   setResponseMessage("Usuario creado correctamente.");
+      // } else {
+      //   console.error("Error al crear el usuario:", await crearUsuarioResponse.text());
+      // }
     } catch (error) {
       console.error("Error de red:", error);
     }
