@@ -251,26 +251,98 @@ function addEjercicioEntreno($datosEjercicio){
     echo json_encode($datos);
 }
 function guardarEntrenoEjercicio($datosEjercicio){
+    $idUsuario = $datosEjercicio['idUsuario'];
     $idEntreno = $datosEjercicio['idEntreno'];
     $idEjercicio = $datosEjercicio['idEjercicio'];
+    $peso = $datosEjercicio['peso'];
+    $series = $datosEjercicio['series'];
+    $repeticiones = $datosEjercicio['repeticiones'];
     $observacion = $datosEjercicio['observacion'];
+    $fecha = $datosEjercicio['fecha'];
 
     $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
-    $resultado = $conexion->prepare("INSERT INTO entreno_ejercicios (id, fk_entreno, fk_ejercicio, observacion) 
+    $resultado = $conexion->prepare("INSERT INTO entreno_historico (id, fk_usuario, fk_entreno, fk_ejercicio, peso, series, repeticiones, observacion, fecha) 
         VALUES (
             NULL,
             ?,
             ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
             ? );");
-    $resultado->execute([$idEntreno, $idEjercicio, $observacion ]);
+    $resultado->execute([$idUsuario, $idEntreno, $idEjercicio, $peso, $series, $repeticiones, $observacion, $fecha ]);
 
     $datos = $resultado ? [ "message" => "añadido entreno"] : [ "message" => "no añadido" ];
 
     header('Content-Type: application/json');
     echo json_encode($datos);
 }
-function recuperarHistorico(){}
-function recuperarHistoricoEjercicio($ejercicio){}
+function recuperarHistoricoEntreno($datos){
+    $idUsuario = $datos['idUsuario'];
+    $idEntreno = $datos['idEntreno'];
+
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("SELECT * 
+        FROM entreno_historico enh
+        JOIN ejercicios ej ON ej.id = enh.fk_ejercicio  
+        WHERE fk_usuario = ? AND fk_entreno = ? 
+        ORDER BY ej.ejercicio, enh.fecha");
+    
+    $resultado->execute([$idUsuario, $idEntreno]);
+    $datos = array();
+    while($fila = $resultado -> fetch_assoc()) {
+        $ejercicio = array(
+            'id' => $fila['id'],
+            'fk_usuario' => $fila['fk_usuario'],
+            'fk_entreno' => $fila['fk_entreno'],
+            'fk_ejercicio' => $fila['fk_ejercicio'],
+            'ejercicio' => $fila['ejercicio'],
+            'peso' => $fila['peso'],
+            'series' => $fila['series'],
+            'repeticiones' => $fila['observacion'],
+            'fecha' => $fila['fecha'],
+        );
+
+        $datos[] = $ejercicio;
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
+}
+function recuperarHistoricoEjercicio($datos){
+    $idUsuario = $datos['idUsuario'];
+    $idEjercicio = $datos['idEjercicio'];
+
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("SELECT * 
+        FROM entreno_historico enh
+        JOIN ejercicios ej ON ej.id = enh.fk_ejercicio  
+        WHERE fk_usuario = ? AND fk_ejercicio = ? 
+        ORDER BY enh.fecha");
+    
+    $resultado->execute([$idUsuario, $idEntreno]);
+    $datos = array();
+    while($fila = $resultado -> fetch_assoc()) {
+        $ejercicio = array(
+            'id' => $fila['id'],
+            'fk_usuario' => $fila['fk_usuario'],
+            'fk_entreno' => $fila['fk_entreno'],
+            'fk_ejercicio' => $fila['fk_ejercicio'],
+            'ejercicio' => $fila['ejercicio'],
+            'peso' => $fila['peso'],
+            'series' => $fila['series'],
+            'repeticiones' => $fila['observacion'],
+            'fecha' => $fila['fecha'],
+        );
+
+        $datos[] = $ejercicio;
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
+}
 
  
 ?>
