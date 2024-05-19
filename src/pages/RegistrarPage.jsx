@@ -17,12 +17,13 @@ export default function RegistrarPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    const formData = new FormData();
+    const formData = new FormData(e.target);
     const datos = {
-      nombre : formData.name,
-      email : formData.email,
-      password : formData.password
+      nombre : formData.get("name"),
+      email : formData.get("email"),
+      password : formData.get("password")
     }
+    console.log(formData)
   console.log(datos)
     try {
       const response = await comprobarEmail(datos.email);
