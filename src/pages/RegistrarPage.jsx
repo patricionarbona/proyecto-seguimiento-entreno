@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { comprobarEmail, crearUsuario } from "../utils/Peticiones";
 
 export default function RegistrarPage() {
@@ -8,6 +9,9 @@ export default function RegistrarPage() {
     password: ""
   });
   const [responseMessage, setResponseMessage] = useState("");
+
+  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,7 +33,7 @@ export default function RegistrarPage() {
       if (response.message === "no existe") {
         response = await crearUsuario(datos)
         if (response.message === "añadido usuario") {
-          console.log("Se ha añadido el usuario")
+          navigate('/login');
         } else {
           console.log("No se añadió el usuario")
         }
