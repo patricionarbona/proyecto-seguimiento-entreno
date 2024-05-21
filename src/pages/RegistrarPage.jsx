@@ -23,27 +23,20 @@ export default function RegistrarPage() {
       email : formData.get("email"),
       password : formData.get("password")
     }
-    console.log(formData)
-  console.log(datos)
     try {
-      const response = await comprobarEmail(datos.email);
-      if (response.ok) {
-        const responseData = await response.json();
-        if (responseData.message === "existe") {
-          setResponseMessage("El usuario ya existe.");
-          return;
+      let response = await comprobarEmail(datos.email)
+      console.log("respuesta ", response)
+      if (response.message === "no existe") {
+        response = await crearUsuario(datos)
+        if (response.message === "añadido usuario") {
+          console.log("Se ha añadido el usuario")
+        } else {
+          console.log("No se añadió el usuario")
         }
       } else {
-        console.error("Error al verificar el email existente:", await response.text());
+        console.log("Ya existe el usuario")
       }
-  
-      // const crearUsuarioResponse = await crearUsuario(formData);
-      // if (crearUsuarioResponse.ok) {
-      //   const responseData = await crearUsuarioResponse.json();
-      //   setResponseMessage("Usuario creado correctamente.");
-      // } else {
-      //   console.error("Error al crear el usuario:", await crearUsuarioResponse.text());
-      // }
+      
     } catch (error) {
       console.error("Error de red:", error);
     }

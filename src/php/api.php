@@ -3,21 +3,21 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
 
+$input = file_get_contents("php://input");
+$data = json_decode($input, true);
+
 // Verificar si se recibió la solicitud con el parámetro "getUsuarios"
-if(isset($_POST["getUsuarios"])) {
+if(isset($data["getUsuarios"])) {
     // Establecer la respuesta para la solicitud "getUsuarios"
     obtenerUsuarios();
 } 
-if(isset($_POST['emailExiste'])) {
-    emailExiste($_POST['email']);
+
+if(isset($data['crearUsuario'])) {
+    crearUsuario($data['crearUsuario']);
 }
 
-if(isset($_POST['crearUsuario'])) {
-    crearUsuario($_POST['crearUsuario']);
-}
-
-if(isset($_POST['comprobarEmail'])) {
-    comprobarEmail($_POST['comprobarEmail']);
+if(isset($data['comprobarEmail'])) {
+    comprobarEmail($data['comprobarEmail']);
 }
 
 function obtenerUsuarios() {
@@ -39,42 +39,9 @@ function obtenerUsuarios() {
     echo json_encode($datos);
 }
 
-function emailExiste($email) {
-    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
-    $resultado = $conexion->prepare("SELECT * FROM usuario WHERE email = ?");
-    $resultado->execute([$email]);
-    $datos = array();
-    while($fila = $resultado->fetch()) {
-        $usuario = array(
-            'email' => $fila['email'],
-        );
-        $datos[] = $usuario;
-    }
-    header('Content-Type: application/json');
-    echo json_encode($datos);
-}
-
-// function crearUsuario() {
-//     $email = $_POST['email'];
-//     $password = $_POST['password'];
-//     $password_hashed = hash('sha256', $password);    
-//     $nombre = $_POST['nombre'];
-//     $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
-//     $resultado = $conexion->prepare("INSERT INTO `usuario` (`id`, `email`, `password`, `nombre`, `admin`) VALUES (NULL, ?, ?, ?, '0');");
-//     $resultado->execute([$email,$password_hashed,$nombre]);
-//     $datos = array();
-    
-//     if($resultado-> rowCount() > 0) {
-//         $datos[] = ["message" => "se creo el usuario"];
-//     }
-
-//     header('Content-Type: application/json');
-//     echo json_encode($datos);
-// }
 
 // Querys para gestionar la BD
 function comprobarEmail($email){
-    $email = json_decode($email,true);
     $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
     $resultado = $conexion->prepare("SELECT * FROM usuario WHERE email = ?");
     $resultado->execute([$email]);
@@ -85,7 +52,6 @@ function comprobarEmail($email){
 }
 
 function crearUsuario($datosUsuario){
-    $datosUsuario = json_decode($datosUsuario,true);
 
     $nombre = $datosUsuario['nombre'];
     $email = $datosUsuario['email'];

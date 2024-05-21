@@ -24,8 +24,13 @@ export async function emailExiste(email) {
       method: "POST",
       body: formData
     });
-    console.log("respuesta peticion: ", response);
-    return response;
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const responseData = await response.json();
+    console.log("respuesta petición: ", responseData);
+    return responseData;
   } catch (error) {
     console.error("Error de red:", error);
   }
@@ -33,34 +38,41 @@ export async function emailExiste(email) {
 
 export async function comprobarEmail(email) {
   try {
-    const formData = new FormData();
-    formData.append('comprobarEmail', 
-      email
-    );
-
+    const data = { comprobarEmail: email}
     const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/api.php", {
       method: "POST",
-      body: formData
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      
     });
-    console.log("respuesta peticion: ", response);
-    return response;
+    
+    if(!response.ok) { throw new Error("Ha habido un error al comprobar el email")}
+
+    const responseData = await response.json()
+
+    return responseData;
   } catch (error) {
     console.error("Error de red:", error);
   }
 }
 
-export async function crearUsuario(form) {
+export async function crearUsuario(datosUsuario) {
   try {
-    console.log("form?:" ,form)
-    const formData = new FormData(form)
-    formData.append('crearUsuario', 'crearUsuario')
-    console.log("form d?:" ,form)
+    const data = { crearUsuario: datosUsuario}
+    console.log("crear usuario ",data)
     const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/api.php", {
       method: "POST",
-      body: formData
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      },
     });
-    console.log("respuesta peticion: ", response);
-    return response;
+    if(!response.ok) { throw new Error("Ha habido un error al añadir un usuario")}
+
+    const responseData = await response.json()
+    return responseData
   } catch (error) {
     console.error("Error de red:", error);
   }
