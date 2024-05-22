@@ -1,0 +1,724 @@
+[
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/UcvY9fRgNeiV4m",
+        "id": "0001",
+        "name": "3/4 sit-up",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors",
+            "lower back"
+        ],
+        "instructions": [
+            "Lie flat on your back with your knees bent and feet flat on the ground.",
+            "Place your hands behind your head with your elbows pointing outwards.",
+            "Engaging your abs, slowly lift your upper body off the ground, curling forward until your torso is at a 45-degree angle.",
+            "Pause for a moment at the top, then slowly lower your upper body back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/I-Of0Ev43i4Zt7",
+        "id": "0002",
+        "name": "45° side bend",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques"
+        ],
+        "instructions": [
+            "Stand with your feet shoulder-width apart and your arms extended straight down by your sides.",
+            "Keeping your back straight and your core engaged, slowly bend your torso to one side, lowering your hand towards your knee.",
+            "Pause for a moment at the bottom, then slowly return to the starting position.",
+            "Repeat on the other side.",
+            "Continue alternating sides for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/vqnn-xmm4fINTJ",
+        "id": "0003",
+        "name": "air bike",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors"
+        ],
+        "instructions": [
+            "Lie flat on your back with your hands placed behind your head.",
+            "Lift your legs off the ground and bend your knees at a 90-degree angle.",
+            "Bring your right elbow towards your left knee while simultaneously straightening your right leg.",
+            "Return to the starting position and repeat the movement on the opposite side, bringing your left elbow towards your right knee while straightening your left leg.",
+            "Continue alternating sides in a pedaling motion for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/Y99VpeCGG19urP",
+        "id": "0006",
+        "name": "alternate heel touchers",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques"
+        ],
+        "instructions": [
+            "Lie flat on your back with your knees bent and feet flat on the ground.",
+            "Extend your arms straight out to the sides, parallel to the ground.",
+            "Engaging your abs, lift your shoulders off the ground and reach your right hand towards your right heel.",
+            "Return to the starting position and repeat on the left side, reaching your left hand towards your left heel.",
+            "Continue alternating sides for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/syexFkqm09g-Ms",
+        "id": "2355",
+        "name": "arm slingers hanging bent knee legs",
+        "target": "abs",
+        "secondaryMuscles": [
+            "shoulders",
+            "back"
+        ],
+        "instructions": [
+            "Hang from a pull-up bar with your arms fully extended and your knees bent at a 90-degree angle.",
+            "Engage your core and lift your knees towards your chest, bringing them as close to your elbows as possible.",
+            "Slowly lower your legs back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/hcbbkHUzwGrwny",
+        "id": "3204",
+        "name": "arms overhead full sit-up (male)",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors",
+            "lower back"
+        ],
+        "instructions": [
+            "Lie flat on your back with your knees bent and feet flat on the ground.",
+            "Extend your arms overhead, keeping them straight.",
+            "Engaging your abs, slowly lift your upper body off the ground, curling forward until your torso is upright.",
+            "Pause for a moment at the top, then slowly lower your upper body back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "assisted",
+        "gifUrl": "https://v2.exercisedb.io/image/7rVuOzzhMo3qnN",
+        "id": "0012",
+        "name": "assisted lying leg raise with lateral throw down",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors",
+            "obliques"
+        ],
+        "instructions": [
+            "Lie flat on your back with your legs extended and your arms by your sides.",
+            "Place your hands under your glutes for support.",
+            "Engage your abs and lift your legs off the ground, keeping them straight.",
+            "While keeping your legs together, lower them to one side until they are a few inches above the ground.",
+            "Pause for a moment, then lift your legs back to the starting position.",
+            "Repeat the movement to the other side.",
+            "Continue alternating sides for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "medicine ball",
+        "gifUrl": "https://v2.exercisedb.io/image/Uoowiw0CaNi9pN",
+        "id": "0014",
+        "name": "assisted motion russian twist",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques",
+            "lower back"
+        ],
+        "instructions": [
+            "Sit on the ground with your knees bent and feet flat on the floor.",
+            "Hold the medicine ball with both hands in front of your chest.",
+            "Lean back slightly, engaging your abs and keeping your back straight.",
+            "Slowly twist your torso to the right, bringing the medicine ball towards the right side of your body.",
+            "Pause for a moment, then twist your torso to the left, bringing the medicine ball towards the left side of your body.",
+            "Continue alternating sides for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://v2.exercisedb.io/image/aBP05NJAvTAKNu",
+        "id": "0971",
+        "name": "band assisted wheel rollerout",
+        "target": "abs",
+        "secondaryMuscles": [
+            "lower back"
+        ],
+        "instructions": [
+            "Kneel on the floor and hold the handles of the band with both hands, palms facing down.",
+            "Place the band on the ground in front of you and position your hands shoulder-width apart.",
+            "Engage your core and slowly roll the wheel forward, extending your body as far as you can while maintaining control.",
+            "Pause for a moment at the furthest point, then slowly roll the wheel back towards your knees to return to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://v2.exercisedb.io/image/76c9TCd3noW5pI",
+        "id": "0985",
+        "name": "band kneeling twisting crunch",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques"
+        ],
+        "instructions": [
+            "Attach the band to a sturdy anchor point at waist height.",
+            "Kneel down facing away from the anchor point and hold the band with both hands, keeping your elbows bent and close to your sides.",
+            "Engage your abs and slowly twist your torso to one side, bringing your hands towards your opposite hip.",
+            "Pause for a moment, then slowly return to the starting position.",
+            "Repeat on the other side.",
+            "Continue alternating sides for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "https://v2.exercisedb.io/image/5SIEeRwy8kSgQl",
+        "id": "1005",
+        "name": "band standing crunch",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques"
+        ],
+        "instructions": [
+            "Attach the band to a sturdy anchor point at waist height.",
+            "Stand facing away from the anchor point with your feet shoulder-width apart.",
+            "Hold the band with both hands and bring it up to your chest, keeping your elbows bent and close to your body.",
+            "Engage your abs and slowly crunch forward, bringing your chest towards your knees.",
+            "Pause for a moment at the top of the crunch, then slowly return to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "barbell",
+        "gifUrl": "https://v2.exercisedb.io/image/joX9o-xA9YGCMR",
+        "id": "0084",
+        "name": "barbell rollerout",
+        "target": "abs",
+        "secondaryMuscles": [
+            "lower back"
+        ],
+        "instructions": [
+            "Kneel on the floor and hold a barbell with both hands, shoulder-width apart.",
+            "Roll the barbell forward, extending your arms and keeping your core engaged.",
+            "Continue rolling forward until your body is fully extended and your arms are overhead.",
+            "Pause for a moment, then slowly roll the barbell back towards your knees, maintaining control.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "barbell",
+        "gifUrl": "https://v2.exercisedb.io/image/sGUuVm5JYpkttd",
+        "id": "0103",
+        "name": "barbell standing ab rollerout",
+        "target": "abs",
+        "secondaryMuscles": [
+            "shoulders",
+            "lower back"
+        ],
+        "instructions": [
+            "Stand upright with your feet shoulder-width apart and hold the barbell with both hands in front of your thighs.",
+            "Engage your core and slowly roll the barbell down towards the ground, keeping your back straight and your arms extended.",
+            "Continue rolling the barbell forward until your body is fully extended and your hands are directly above your head.",
+            "Pause for a moment, then slowly roll the barbell back towards your thighs, maintaining control and keeping your core engaged.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/7kVW2LB3z9HmfO",
+        "id": "3544",
+        "name": "bodyweight incline side plank",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques",
+            "shoulders"
+        ],
+        "instructions": [
+            "Start by lying on your side with your legs extended and stacked on top of each other.",
+            "Place your forearm on the ground directly below your shoulder, with your elbow bent at a 90-degree angle.",
+            "Engage your core and lift your hips off the ground, creating a straight line from your head to your feet.",
+            "Hold this position for the desired amount of time.",
+            "Lower your hips back down to the ground and repeat on the other side."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/HvIb9sTZuV2WRv",
+        "id": "0138",
+        "name": "bottoms-up",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques",
+            "hip flexors"
+        ],
+        "instructions": [
+            "Lie flat on your back with your legs extended and your arms by your sides.",
+            "Bend your knees and bring them towards your chest, keeping your feet off the ground.",
+            "Engaging your abs, lift your hips off the ground, bringing your knees towards your head.",
+            "Pause for a moment at the top, then slowly lower your hips back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/kOUOwDUVToUgyC",
+        "id": "2466",
+        "name": "bridge - mountain climber (cross body)",
+        "target": "abs",
+        "secondaryMuscles": [
+            "glutes",
+            "quadriceps",
+            "hamstrings",
+            "shoulders",
+            "triceps"
+        ],
+        "instructions": [
+            "Start in a high plank position with your hands directly under your shoulders and your body in a straight line.",
+            "Engage your core and lift your right foot off the ground, bringing your right knee towards your left elbow.",
+            "Return your right foot to the starting position and repeat the movement with your left foot towards your right elbow.",
+            "Continue alternating sides, moving at a controlled pace.",
+            "Keep your hips level and avoid lifting your hips too high or sagging them too low.",
+            "Maintain a steady breathing pattern throughout the exercise.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/3oy9Lxz8ZhQHVu",
+        "id": "0870",
+        "name": "butt-ups",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors",
+            "lower back"
+        ],
+        "instructions": [
+            "Lie flat on your back with your knees bent and feet flat on the ground.",
+            "Place your hands by your sides, palms facing down.",
+            "Engaging your abs, lift your legs off the ground, bringing your knees towards your chest.",
+            "At the top of the movement, squeeze your abs and pause for a moment.",
+            "Slowly lower your legs back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "cable",
+        "gifUrl": "https://v2.exercisedb.io/image/fLuggw0AkQQD4y",
+        "id": "0175",
+        "name": "cable kneeling crunch",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques"
+        ],
+        "instructions": [
+            "Attach a rope handle to a high pulley and kneel down facing away from the machine.",
+            "Hold the rope handle with both hands and place it behind your head, keeping your elbows out to the sides.",
+            "Keeping your hips stationary, flex your waist and crunch your torso down towards your thighs.",
+            "Pause for a moment at the bottom, then slowly return to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/sJQhDHFe22igh1",
+        "id": "0260",
+        "name": "cocoons",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors",
+            "lower back"
+        ],
+        "instructions": [
+            "Lie flat on your back with your knees bent and feet flat on the ground.",
+            "Place your hands behind your head with your elbows pointing outwards.",
+            "Engaging your abs, slowly lift your upper body off the ground, curling forward until your torso is at a 45-degree angle.",
+            "Pause for a moment at the top, then slowly lower your upper body back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/urnoGl5qyTxBQZ",
+        "id": "1468",
+        "name": "crab twist toe touch",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques",
+            "hip flexors"
+        ],
+        "instructions": [
+            "Start by sitting on the ground with your knees bent and feet flat on the floor.",
+            "Place your hands behind you, fingers pointing towards your feet, and lift your hips off the ground.",
+            "Extend one leg straight out in front of you while simultaneously reaching your opposite hand towards your toes.",
+            "Return to the starting position and repeat on the other side.",
+            "Continue alternating sides for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/znbSwATOCU1Uwf",
+        "id": "0262",
+        "name": "cross body crunch",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques"
+        ],
+        "instructions": [
+            "Lie flat on your back with your knees bent and feet flat on the ground.",
+            "Place your hands behind your head with your elbows pointing outwards.",
+            "Engaging your abs, lift your upper body off the ground and twist to bring your right elbow towards your left knee.",
+            "Pause for a moment at the top, then slowly lower your upper body back down to the starting position.",
+            "Repeat on the other side, bringing your left elbow towards your right knee.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/keujYaYEa2gJw0",
+        "id": "0267",
+        "name": "crunch (hands overhead)",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors"
+        ],
+        "instructions": [
+            "Lie flat on your back with your knees bent and feet flat on the ground.",
+            "Extend your arms straight above your head.",
+            "Engaging your abs, lift your upper body off the ground, curling forward towards your knees.",
+            "Pause for a moment at the top, then slowly lower your upper body back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "stability ball",
+        "gifUrl": "https://v2.exercisedb.io/image/2i1S2gkyquzgcy",
+        "id": "0271",
+        "name": "crunch (on stability ball)",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors"
+        ],
+        "instructions": [
+            "Sit on the stability ball with your feet flat on the ground and your knees bent at a 90-degree angle.",
+            "Lie back on the ball until your lower back is supported and your upper body is parallel to the floor.",
+            "Place your hands behind your head or across your chest.",
+            "Engage your abs and lift your upper body towards your knees, curling your torso forward.",
+            "Pause for a moment at the top of the movement, then slowly lower your upper body back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/A9hm2vo3oTgkv8",
+        "id": "0274",
+        "name": "crunch floor",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors"
+        ],
+        "instructions": [
+            "Lie flat on your back with your knees bent and feet flat on the ground.",
+            "Place your hands behind your head with your elbows pointing outwards.",
+            "Engage your abs and lift your shoulders off the ground, curling forward towards your knees.",
+            "Pause for a moment at the top, then slowly lower your shoulders back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/Uokr8XkQICPinv",
+        "id": "0276",
+        "name": "dead bug",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors",
+            "lower back"
+        ],
+        "instructions": [
+            "Lie flat on your back with your arms extended towards the ceiling.",
+            "Bend your knees and lift your legs off the ground, creating a 90-degree angle at your hips and knees.",
+            "Engage your core and lower back to press your lower back into the ground.",
+            "Slowly lower your right arm and left leg towards the ground, keeping them straight and hovering just above the floor.",
+            "Pause for a moment, then return to the starting position.",
+            "Repeat the movement with your left arm and right leg.",
+            "Continue alternating sides for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/VxNeh7XqgnIvK9",
+        "id": "0277",
+        "name": "decline crunch",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors"
+        ],
+        "instructions": [
+            "Lie on a decline bench with your feet secured and your knees bent at a 90-degree angle.",
+            "Place your hands behind your head or across your chest.",
+            "Engage your abs and lift your upper body towards your knees, curling your torso.",
+            "Pause for a moment at the top, then slowly lower your upper body back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "dumbbell",
+        "gifUrl": "https://v2.exercisedb.io/image/XKTHDfiWOHCRn5",
+        "id": "0407",
+        "name": "dumbbell side bend",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques"
+        ],
+        "instructions": [
+            "Stand up straight with your feet shoulder-width apart and hold a dumbbell in one hand, letting it hang down by your side.",
+            "Keeping your back straight and your core engaged, slowly bend sideways at the waist towards the opposite side of the dumbbell, lowering the weight as far as you comfortably can.",
+            "Pause for a moment, then slowly return to the starting position.",
+            "Repeat for the desired number of repetitions, then switch sides and repeat."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/b2Vbw1FxgvbPYw",
+        "id": "0443",
+        "name": "elbow-to-knee",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques"
+        ],
+        "instructions": [
+            "Start by lying flat on your back with your knees bent and feet flat on the ground.",
+            "Place your hands behind your head with your elbows pointing outwards.",
+            "Engage your abs and lift your upper body off the ground, bringing your right elbow towards your left knee.",
+            "At the same time, bring your left knee towards your right elbow, creating a twisting motion.",
+            "Pause for a moment at the top, then slowly lower your upper body and extend your legs back to the starting position.",
+            "Repeat the movement, this time bringing your left elbow towards your right knee and your right knee towards your left elbow.",
+            "Continue alternating sides for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/lWoYLbIddFMglG",
+        "id": "0464",
+        "name": "front plank with twist",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques",
+            "shoulders"
+        ],
+        "instructions": [
+            "Start in a high plank position with your hands directly under your shoulders and your body in a straight line from head to toe.",
+            "Engage your core and glutes to maintain a stable position.",
+            "Rotate your torso to the right, lifting your right arm and extending it towards the ceiling.",
+            "Keep your hips and legs stable as you twist.",
+            "Hold for a moment, then return to the starting position.",
+            "Repeat the twist on the left side.",
+            "Continue alternating sides for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/GwGDCt1LK27TU3",
+        "id": "1764",
+        "name": "hanging leg hip raise",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors",
+            "lower back"
+        ],
+        "instructions": [
+            "Hang from a pull-up bar with your arms fully extended and your palms facing away from you.",
+            "Engage your core and lift your legs up by flexing your hips and knees until your thighs are parallel to the ground.",
+            "Pause for a moment at the top, then slowly lower your legs back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/u1a9XUYzDNJvFI",
+        "id": "0475",
+        "name": "hanging straight leg raise",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors"
+        ],
+        "instructions": [
+            "Hang from a pull-up bar with your arms fully extended and your palms facing away from you.",
+            "Engage your core and lift your legs up in front of you, keeping them straight.",
+            "Continue lifting until your legs are parallel to the ground or as high as you can comfortably go.",
+            "Pause for a moment at the top, then slowly lower your legs back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/tq372uHjngGUSQ",
+        "id": "0484",
+        "name": "hip raise (bent knee)",
+        "target": "abs",
+        "secondaryMuscles": [
+            "glutes",
+            "hamstrings"
+        ],
+        "instructions": [
+            "Lie flat on your back with your knees bent and feet flat on the ground.",
+            "Place your hands by your sides, palms facing down.",
+            "Engage your core and glutes, then lift your hips off the ground until your body forms a straight line from your knees to your shoulders.",
+            "Pause for a moment at the top, then slowly lower your hips back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/Bzq7te7xqpuQ5f",
+        "id": "1471",
+        "name": "inchworm",
+        "target": "abs",
+        "secondaryMuscles": [
+            "shoulders",
+            "hamstrings"
+        ],
+        "instructions": [
+            "Start in a standing position with your feet hip-width apart.",
+            "Bend forward at the waist and place your hands on the ground in front of you.",
+            "Walk your hands forward until you are in a high plank position, with your body in a straight line from head to toe.",
+            "Pause for a moment, then walk your hands back towards your feet, keeping your legs as straight as possible.",
+            "Once your hands reach your feet, stand back up to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/BPst7c2VoFxIQX",
+        "id": "0491",
+        "name": "incline leg hip raise (leg straight)",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors"
+        ],
+        "instructions": [
+            "Lie on an incline bench with your back flat against the bench and your legs extended straight out in front of you.",
+            "Place your hands on the sides of the bench for support.",
+            "Engaging your abs, lift your legs off the bench, raising them as high as you can while keeping them straight.",
+            "Pause for a moment at the top, then slowly lower your legs back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/jm6gHzQhaSzDTr",
+        "id": "0495",
+        "name": "incline twisting sit-up",
+        "target": "abs",
+        "secondaryMuscles": [
+            "obliques"
+        ],
+        "instructions": [
+            "Set up an incline bench at a 45-degree angle.",
+            "Lie down on the bench with your feet secured under the foot pads.",
+            "Place your hands behind your head or across your chest.",
+            "Engage your abs and lift your upper body off the bench, curling forward.",
+            "As you curl up, twist your torso to one side, bringing your elbow towards the opposite knee.",
+            "Pause for a moment at the top, then slowly lower your upper body back down to the starting position.",
+            "Repeat the movement, this time twisting your torso to the other side.",
+            "Continue alternating sides for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/ltffupB1Nmyt2N",
+        "id": "0507",
+        "name": "jackknife sit-up",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors"
+        ],
+        "instructions": [
+            "Lie flat on your back with your legs extended and your arms overhead.",
+            "Engage your core and lift your legs and upper body simultaneously, reaching your hands towards your toes.",
+            "Pause for a moment at the top, then slowly lower your legs and upper body back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://v2.exercisedb.io/image/Qhi1LC3gbwkCVc",
+        "id": "0508",
+        "name": "janda sit-up",
+        "target": "abs",
+        "secondaryMuscles": [
+            "hip flexors",
+            "lower back"
+        ],
+        "instructions": [
+            "Lie flat on your back with your knees bent and feet flat on the ground.",
+            "Place your hands behind your head with your elbows pointing outwards.",
+            "Engaging your abs, slowly lift your upper body off the ground, curling forward until your torso is at a 45-degree angle.",
+            "Pause for a moment at the top, then slowly lower your upper body back down to the starting position.",
+            "Repeat for the desired number of repetitions."
+        ]
+    },
+    {
+        "bodyPart": "waist",
+        "equipment": "wheel roller",
+        "gifUrl": "https://v2.exercisedb.io/image/xPshW2NE7a4PqP",
+        "id": "0857",
+        "name": "wheel rollerout",
+        "target": "abs",
+        "secondaryMuscles": [
+            "lower back"
+        ],
+        "instructions": [
+            "Kneel on the floor and place the wheel roller in front of you.",
+            "Place your hands on the handles of the wheel roller and extend your arms straight out in front of you.",
+            "Engage your core muscles and slowly roll the wheel forward, keeping your back straight and your abs tight.",
+            "Continue rolling forward until your body is fully extended and your arms are overhead.",
+            "Pause for a moment, then slowly roll the wheel back towards your knees, maintaining control and keeping your abs engaged.",
+            "Repeat for the desired number of repetitions."
+        ]
+    }
+]
