@@ -77,3 +77,24 @@ export async function crearUsuario(datosUsuario) {
     console.error("Error de red:", error);
   }
 }
+
+export async function iniciarSesion(datosUsuario) {
+  try {
+    console.log("recibo: ",datosUsuario)
+    const data = { iniciarSesion: datosUsuario}
+    console.log("envio: ",data)
+    const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/api.php", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    if(!response.ok) { throw new Error("Ha habido un error al añadir iniciar sesion")}
+
+    const responseData = await response.json()
+    return responseData
+  } catch (error) {
+    console.error("Error de red:", error);
+  }
+}

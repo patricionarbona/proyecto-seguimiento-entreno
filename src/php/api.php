@@ -20,6 +20,10 @@ if(isset($data['comprobarEmail'])) {
     comprobarEmail($data['comprobarEmail']);
 }
 
+if(isset($data['iniciarSesion'])) {
+    iniciarSesion($data['iniciarSesion']);
+}
+
 function obtenerUsuarios() {
     $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
     $resultado = $conexion->prepare("SELECT * FROM usuario");
@@ -85,21 +89,17 @@ function recuperarUsuarios() {
     header('Content-Type: application/json');
     echo json_encode($datos);
 }
-function recuperarUsuario($emailUsuario) {
+function iniciarSesion($datos) {
+    $email = $datos['email'];
+    $password = $datos['password'];
+    $password = hash('sha256', $password);
+    
     $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
-    $resultado = $conexion->prepare("SELECT * FROM usuario WHERE email = ?");
-    $resultado->execute($emailUsuario);
+    $resultado = $conexion->prepare("SELECT * FROM usuario WHERE email = ? AND password=?");
+    $resultado->execute([$email, $password]);
     $datos = array();
-    while($fila = $resultado -> fetch()) {
-        $usuario = array(
-            'id' => $fila['id'],
-            'nombre' => $fila['nombre'],
-            'email' => $fila['email'],
-            'cargo' => $fila['admin'],
-        );
+    $datos = $resultado -> rowCount() > 0 ? [ "message" => "sesion iniciada"] : [ "message" => "no inicia" ];
 
-        $datos[] = $usuario;
-    }
 
     header('Content-Type: application/json');
     echo json_encode($datos);
