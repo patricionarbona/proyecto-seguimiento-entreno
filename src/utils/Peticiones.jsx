@@ -98,3 +98,22 @@ export async function iniciarSesion(datosUsuario) {
     console.error("Error de red:", error);
   }
 }
+
+export async function recuperarGrupos() {
+  try {
+    console.log("me llaman")
+    const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/api.php", {
+      method: "POST",
+      body: JSON.stringify({ recuperarGrupos: "recuperarGrupos" }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    if(!response.ok) { throw new Error("Ha habido un error al añadir iniciar sesion")}
+    console.log("pedi")
+    const responseData = await response.json()
+    return responseData
+  } catch (error) {
+    console.error("Error de red:", error);
+  }
+}

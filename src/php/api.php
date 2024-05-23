@@ -23,6 +23,9 @@ if(isset($data['comprobarEmail'])) {
 if(isset($data['iniciarSesion'])) {
     iniciarSesion($data['iniciarSesion']);
 }
+if(isset($data['recuperarGrupos'])) {
+    recuperarGrupos();
+}
 
 function obtenerUsuarios() {
     $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
@@ -177,6 +180,26 @@ function recuperarEjerciciosGrupo($grupo){
     header('Content-Type: application/json');
     echo json_encode($datos);
 }
+
+function recuperarGrupos(){
+    $conexion = new PDO('mysql:host=localhost;dbname=tfg', 'tfg', '1234');
+    $resultado = $conexion->prepare("SELECT * from grupo;");
+    $resultado->execute();
+    $datos = array();
+    while($fila = $resultado -> fetch()) {
+        $grupo = array(
+            'id' => $fila['id'],
+            'grupo' => $fila['grupo'],
+            'observaciones' => $fila['observaciones'],
+        );
+
+        $datos[] = $grupo;
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($datos);
+}
+
 function crearEntreno($datosEntreno){
     $usuario = $datosEntreno['usuarioEmail'];
     $nombreEntreno = $datosEntreno['entreno'];

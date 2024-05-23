@@ -8,6 +8,7 @@ import SelectorPage from "./pages/SelectorPage.jsx"
 import EntrenosPage from "./pages/EntrenosPage.jsx"
 import NotFoundPage from "./pages/NotFoundPage.jsx"
 import RegistrarPage from "./pages/RegistrarPage.jsx"
+import ExerciseForm from './pages/ExerciseForm.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: '/registrar',
     element: <RegistrarPage/>
+  },
+  {
+    path: '/exerciseForm',
+    element: <ExerciseForm/>
   }
 ])
 
