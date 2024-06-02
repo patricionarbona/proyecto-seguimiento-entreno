@@ -115,6 +115,8 @@ export default function MakeTrain() {
                 autoHeight={true}
                 slidesPerView={3}
                 className="h-[99vh]"
+                loop={true}
+                onSwiper={(swiper) => console.log(swiper)}
               >
                 {ejerciciosSeleccionados.length > 0
                   ? ejerciciosSeleccionados.map((ejercicio, index) => (
