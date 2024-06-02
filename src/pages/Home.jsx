@@ -27,6 +27,7 @@ export default function Home() {
 
     return (
         <>
+        <p>hei</p>
             <div style={bodyStyle}
                 className="flex justify-center md:justify-end items-center"
             >
