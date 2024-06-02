@@ -79,17 +79,7 @@ export default function MakeTrain() {
       <div className="flex gap-6 p-6 mt-16">
         {/* Sección de ejercicios disponibles */}
         <div className="flex-1">
-          <div className="mb-6">
-            <label htmlFor="entreno" className="block mb-2 font-bold">Nombre del entreno</label>
-            <input
-              type="text"
-              id="entreno"
-              value={entreno}
-              onChange={(e) => setEntreno(e.target.value)}
-              required
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-          </div>
+          
           <SelectorGrupos grupo={grupo} setGrupo={setGrupo} />
           <div className="bg-teal-500 w-full flex flex-wrap gap-4 p-4 rounded mt-4">
             {ejerciciosFiltrados.map((ejercicio, index) => (
@@ -104,7 +94,24 @@ export default function MakeTrain() {
 
         {/* Sección de ejercicios seleccionados */}
         <div className="flex flex-col w-1/4"> {/* Ajusta el ancho según sea necesario */}
-          <form action="#" onSubmit={handleSubmit} className="flex flex-col-reverse h-full">
+          <form action="#" onSubmit={handleSubmit} className="flex flex-col h-full">
+          <div className="mb-6">
+            <label htmlFor="entreno" className="block mb-2 font-bold">Nombre del entreno</label>
+            <input
+              type="text"
+              id="entreno"
+              value={entreno}
+              onChange={(e) => setEntreno(e.target.value)}
+              required
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+          <button
+              type="submit"
+              className="mt-4 py-2 bg-green-600 text-white rounded"
+            >
+              Crear Entreno
+            </button>
             <div className="flex-1 overflow-y-auto">
               <Swiper
                 direction={'vertical'}
@@ -132,12 +139,6 @@ export default function MakeTrain() {
                   : <p className="text-center">No hay ejercicios seleccionados</p>}
               </Swiper>
             </div>
-            <button
-              type="submit"
-              className="mt-4 py-2 bg-green-600 text-white rounded"
-            >
-              Crear Entreno
-            </button>
           </form>
         </div>
       </div>
