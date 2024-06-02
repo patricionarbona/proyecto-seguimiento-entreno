@@ -3,7 +3,7 @@ export default async function getUsuarios() {
     const formData = new FormData();
     formData.append('getUsuarios', 'getUsuarios');
 
-    const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/api.php", {
+    const response = await fetch("http://localhost/api/api.php", {
       method: "POST",
       body: formData
     });
@@ -20,7 +20,7 @@ export async function emailExiste(email) {
     formData.append('emailExiste', 'emailExiste');
     formData.append('email', email);
 
-    const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/api.php", {
+    const response = await fetch("http://localhost/api/api.php", {
       method: "POST",
       body: formData
     });
@@ -39,7 +39,7 @@ export async function emailExiste(email) {
 export async function comprobarEmail(email) {
   try {
     const data = { comprobarEmail: email}
-    const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/api.php", {
+    const response = await fetch("http://localhost/api/api.php", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -62,7 +62,7 @@ export async function crearUsuario(datosUsuario) {
   try {
     const data = { crearUsuario: datosUsuario}
     console.log("crear usuario ",data)
-    const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/api.php", {
+    const response = await fetch("http://localhost/api/api.php", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -83,7 +83,7 @@ export async function iniciarSesion(datosUsuario) {
     console.log("recibo: ",datosUsuario)
     const data = { iniciarSesion: datosUsuario}
     console.log("envio: ",data)
-    const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/api.php", {
+    const response = await fetch("http://localhost/api/api.php", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -102,13 +102,31 @@ export async function iniciarSesion(datosUsuario) {
 export async function recuperarGrupos() {
   try {
     console.log("me llaman")
-    const response = await fetch("http://localhost/tfg/proyecto-seguimiento-entreno/src/php/api.php", {
+    const response = await fetch("http://localhost/api/api.php", {
       method: "POST",
       body: JSON.stringify({ recuperarGrupos: "recuperarGrupos" }),
       headers: {
         'Content-Type': 'application/json'
       },
     });
+    if(!response.ok) { throw new Error("Ha habido un error al añadir iniciar sesion")}
+    console.log("pedi")
+    const responseData = await response.json()
+    return responseData
+  } catch (error) {
+    console.error("Error de red:", error);
+  }
+}
+
+export async function crearEjercicio(datosEjercicio) {
+  
+  try {
+    console.log("me llaman")
+    const response = await fetch("http://localhost/api/api.php", {
+      method: "POST",
+      body: datosEjercicio,
+    });
+    
     if(!response.ok) { throw new Error("Ha habido un error al añadir iniciar sesion")}
     console.log("pedi")
     const responseData = await response.json()

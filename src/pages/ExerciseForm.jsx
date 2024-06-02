@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { recuperarGrupos } from '../utils/Peticiones';
+import { crearEjercicio, recuperarGrupos } from '../utils/Peticiones';
 
 const ExerciseForm = () => {
   const [exerciseName, setExerciseName] = useState('');
@@ -28,7 +28,12 @@ const ExerciseForm = () => {
     formData.append('exercisePhoto', exercisePhoto);
     formData.append('description', description);
     formData.append('category', category);
-    
+    try {
+      const response = await crearEjercicio(formData)
+      console.log(response)
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+    }
     // Aquí puedes manejar el envío de los datos, por ejemplo enviarlos a un servidor o guardarlos en el estado global
     console.log({
       exerciseName,

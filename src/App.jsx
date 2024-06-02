@@ -1,51 +1,54 @@
-import './App.css'
-import Login from './components/Login/Login.jsx'
-import ExerciseSelector from './components/ExerciseSelector/ExerciseSelector.jsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import HomePage from "./pages/HomePage.jsx"
-import LoginPage from "./pages/LoginPage.jsx"
-import SelectorPage from "./pages/SelectorPage.jsx"
-import EntrenosPage from "./pages/EntrenosPage.jsx"
-import NotFoundPage from "./pages/NotFoundPage.jsx"
-import RegistrarPage from "./pages/RegistrarPage.jsx"
-import ExerciseForm from './pages/ExerciseForm.jsx';
+import './App.css';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Home from "./pages/Home.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
+import Registrar from './pages/Registrar.jsx';
+import Login from './pages/Login.jsx';
+import FrontPage from './pages/FrontPage.jsx';
+import AddExercise from './pages/AddExercise.jsx';
+import MakeTrain from "./pages/MakeTrain.jsx"
+import { Toaster } from 'react-hot-toast';
+import Entrenos from './pages/Entrenos.jsx';
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <HomePage/>,
-    errorElement: <NotFoundPage/>
+    path: "/",
+    element: <Home />,
+    errorElement: <NotFoundPage />
   },
   {
-    path: '/login',
-    element: <LoginPage/>
+    path: "/registrar",
+    element: <Registrar />
   },
   {
-    path: '/selector',
-    element: <SelectorPage/>
+    path: "/login",
+    element: <Login />
   },
   {
-    path: '/entrenos',
-    element: <EntrenosPage/>
+    path: "/front-page",
+    element: <FrontPage />
   },
   {
-    path: '/registrar',
-    element: <RegistrarPage/>
+    path: "/add-exercise",
+    element: <AddExercise />
   },
   {
-    path: '/exerciseForm',
-    element: <ExerciseForm/>
+    path: "/make-train",
+    element: <MakeTrain />
+  },
+  {
+    path: "/my-trains",
+    element: <Entrenos />
   }
-])
-
+]);
 
 function App() {
-
   return (
     <>
       <RouterProvider router={router} />
+      <Toaster position="top-center" />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
