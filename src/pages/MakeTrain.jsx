@@ -75,47 +75,49 @@ export default function MakeTrain() {
   };
 
   return (
-    <div>
-      <form action="#" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="entreno">Nombre del entreno</label>
+    <div className="flex gap-6 p-6">
+      {/* Sección de ejercicios disponibles */}
+      <div className="flex-1">
+        <div className="mb-6">
+          <label htmlFor="entreno" className="block mb-2 font-bold">Nombre del entreno</label>
           <input
             type="text"
             id="entreno"
             value={entreno}
             onChange={(e) => setEntreno(e.target.value)}
             required
+            className="w-full p-2 border border-gray-300 rounded"
           />
         </div>
         <SelectorGrupos grupo={grupo} setGrupo={setGrupo} />
-        {/* Slider superior */}
-        <div
-          className="bg-teal-500 w-11/12 flex justify-evenly gap-5 flex-wrap mx-auto"
-        >
-            {ejerciciosFiltrados.map((ejercicio, index) => (
-                <CardEjercicio
-                  datosEjercicio={ejercicio}
-                  key={`c-ejer-${ejercicio.id}`}
-                  onClick={() => handleClick(index)}
-                />
-            ))}
+        <div className="bg-teal-500 w-full flex flex-wrap gap-4 p-4 rounded mt-4">
+          {ejerciciosFiltrados.map((ejercicio, index) => (
+            <CardEjercicio
+              datosEjercicio={ejercicio}
+              key={`c-ejer-${ejercicio.id}`}
+              onClick={() => handleClick(index)}
+            />
+          ))}
         </div>
-        <div>
-          <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={50}
-            slidesPerView={3}
-            navigation
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
-          >
-            {ejerciciosSeleccionados.length > 0
-              ? ejerciciosSeleccionados.map((ejercicio, index) => (
-                  <SwiperSlide
-                    key={`slc-${ejercicio.id}`}
-                  >
+      </div>
+
+      {/* Sección de ejercicios seleccionados */}
+      <div className="flex-1 flex flex-col w-32">
+        <form action="#" onSubmit={handleSubmit} className="flex flex-col-reverse h-full justify-end">
+          <div className="h-full">
+            <Swiper
+              direction={'vertical'}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination]}
+              autoHeight={true}
+              slidesPerView={2}
+              className="h-full"
+            >
+              {ejerciciosSeleccionados.length > 0
+                ? ejerciciosSeleccionados.map((ejercicio, index) => (
+                  <SwiperSlide key={`slc-${ejercicio.id}`}>
                     <CardEjercicio
                       datosEjercicio={ejercicio}
                       key={`c-slc-${ejercicio.id}`}
@@ -124,26 +126,17 @@ export default function MakeTrain() {
                     />
                   </SwiperSlide>
                 ))
-              : null}
-          </Swiper>
-        </div>
-        <div>
+                : <p className="text-center">No hay ejercicios seleccionados</p>}
+            </Swiper>
+          </div>
           <button
             type="submit"
-            style={{
-              width: "100%",
-              padding: "10px",
-              backgroundColor: "#28a745",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
+            className="mt-4 py-2 bg-green-600 text-white rounded"
           >
             Crear Entreno
           </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
