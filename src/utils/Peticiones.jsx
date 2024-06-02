@@ -118,6 +118,25 @@ export async function recuperarGrupos() {
   }
 }
 
+export async function recuperarEjercicios() {
+  try {
+    console.log("me llaman")
+    const response = await fetch("http://localhost/api/api.php", {
+      method: "POST",
+      body: JSON.stringify({ recuperarEjercicios: "recuperarEjercicios" }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    if(!response.ok) { throw new Error("Ha habido un error al añadir iniciar sesion")}
+    console.log("pedi")
+    const responseData = await response.json()
+    return responseData
+  } catch (error) {
+    console.error("Error de red:", error);
+  }
+}
+
 export async function recuperarEquipamientos() {
   try {
     console.log("me llaman")

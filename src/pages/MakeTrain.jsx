@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import SelectorGrupos from "../components/Selectores/SelectorGrupos";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
-import { crearEntreno, recuperarEjerciciosGrupo } from "../utils/Peticiones";
+import { crearEntreno, recuperarEjercicios, recuperarEjerciciosGrupo } from "../utils/Peticiones";
 import toast from "react-hot-toast";
 import CardEjercicio from "../components/CardEjercicio/CardEjercicio";
 
@@ -18,31 +18,34 @@ export default function MakeTrain() {
   const [grupo, setGrupo] = useState("");
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchEjercicios = async () => {
       try {
-        const response = await recuperarEjerciciosGrupo(grupo);
-        console.log(response.map((res) => [res.foto, res.ejercicio]));
+        const response = await recuperarEjercicios();
         setEjercicios(response);
       } catch (err) {
-        console.error("Error al recuperar los grupos:", err);
+        console.error("Error al recuperar los ejercicios:", err);
       }
     };
-    fetchCategories();
-  }, [grupo]);
+
+    fetchEjercicios();
+  }, []);
+
+  const ejerciciosFiltrados = useMemo(() => {
+    if (!grupo) return ejercicios;
+    return ejercicios.filter(ejercicio => ejercicio.grupo === grupo);
+  }, [grupo, ejercicios]);
 
   const handleClick = (index) => {
-    console.log("antes: ", ejerciciosSeleccionados);
     setEjerciciosSeleccionados((prevSeleccionados) => {
       if (
-        !prevSeleccionados.find((ejercicio) => ejercicio === ejercicios[index])
+        !prevSeleccionados.find((ejercicio) => ejercicio === ejerciciosFiltrados[index])
       ) {
-        toast.success("ejercicio añadido");
-        return [...prevSeleccionados, ejercicios[index]];
+        toast.success("Ejercicio añadido");
+        return [...prevSeleccionados, ejerciciosFiltrados[index]];
       }
-      toast.error("el ejercicio ya esta seleccionado");
+      toast.error("El ejercicio ya está seleccionado");
       return prevSeleccionados;
     });
-    console.log("despues: ", ejerciciosSeleccionados);
   };
 
   const handleClickEliminar = (index) => {
@@ -59,16 +62,15 @@ export default function MakeTrain() {
       email: email,
       entreno: entreno,
       ejerciciosId: ejerciciosSeleccionados.map((ejer) => ejer.id)
-    }
-    console.log(data)
+    };
     const responseCreate = await crearEntreno(data);
     const mensaje = responseCreate.message
     if (mensaje === "1") {
-      toast.success("Creado el entreno")
+      toast.success("Creado el entreno");
     } else if (mensaje === "0") {
-      toast.error("Hubo un error durante la creación del entreno")
+      toast.error("Hubo un error durante la creación del entreno");
     } else if (mensaje === "2") {
-      toast.error("Ese entreno ya existe")
+      toast.error("Ese entreno ya existe");
     }
   };
 
@@ -90,7 +92,7 @@ export default function MakeTrain() {
         <div
           className="bg-teal-500 w-11/12 flex justify-evenly gap-5 flex-wrap mx-auto"
         >
-            {ejercicios.map((ejercicio, index) => (
+            {ejerciciosFiltrados.map((ejercicio, index) => (
                 <CardEjercicio
                   datosEjercicio={ejercicio}
                   key={`c-ejer-${ejercicio.id}`}
@@ -113,7 +115,6 @@ export default function MakeTrain() {
               ? ejerciciosSeleccionados.map((ejercicio, index) => (
                   <SwiperSlide
                     key={`slc-${ejercicio.id}`}
-                    // onClick={() => handleClickEliminar(index)}
                   >
                     <CardEjercicio
                       datosEjercicio={ejercicio}

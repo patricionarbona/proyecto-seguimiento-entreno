@@ -3,7 +3,7 @@ import SelectorEntrenos from "../components/Selectores/SelectorEntrenos";
 import { guardarEjercicioEntreno, recuperarEjerciciosEntreno } from "../utils/Peticiones";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
-import CardSaveEjercicio from "../components/CartaEjercicio/CardSaveExercise";
+import CardSaveEjercicio from "../components/CardEjercicio/CardSaveExercise";
 
 export default function Entrenos () {
     const [entreno, setEntreno] = useState('');
