@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { iniciarSesion } from "../utils/Peticiones";
 import { toast } from 'react-hot-toast';
+import Button from "../components/ui/button/Button";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -28,9 +29,11 @@ export default function Login() {
 
   return (
     <div
+      className="flex flex-col items-center gap-8"
+
     >
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: "15px" }}>
+        <div>
           <label htmlFor="email">Correo electrónico</label>
           <input
             type="email"
@@ -38,10 +41,9 @@ export default function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            style={{ width: "100%", padding: "8px", marginTop: "5px" }}
           />
         </div>
-        <div style={{ marginBottom: "15px" }}>
+        <div>
           <label htmlFor="password">Contraseña</label>
           <input
             type="password"
@@ -49,23 +51,9 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            style={{ width: "100%", padding: "8px", marginTop: "5px" }}
           />
         </div>
-        <button
-          type="submit"
-          style={{
-            width: "100%",
-            padding: "10px",
-            backgroundColor: "#007bff",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          Iniciar Sesión
-        </button>
+          <Button text={"Iniciar Sesión"} type={"submit"} />
       </form>
     </div>
   );
