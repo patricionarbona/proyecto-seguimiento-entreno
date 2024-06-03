@@ -1,22 +1,24 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { iniciarSesion } from "../utils/Peticiones";
 import { toast } from 'react-hot-toast';
 import Button from "../components/ui/button/Button";
+import MainContext from "../context/MainContext";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [emailLogin, setEmailLogin] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const {
+    setEmailUser
+  } = useContext(MainContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Datos de inicio de sesión:", { email, password });
-    const response = await iniciarSesion({ email, password });
+    const response = await iniciarSesion({ email:emailLogin, password });
     console.log(response);
     if (response.message === "sesion iniciada") {
-      localStorage.setItem('email',email)
-      sessionStorage.setItem('email',email)
+      setEmailUser(emailLogin)
       navigate("/front-page");
     } else {
       toast.error('Datos de usuario erróneos');
@@ -38,8 +40,8 @@ export default function Login() {
           <input
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={emailLogin}
+            onChange={(e) => setEmailLogin(e.target.value)}
             required
           />
         </div>

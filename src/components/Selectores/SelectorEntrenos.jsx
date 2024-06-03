@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { recuperarEntrenos } from "../../utils/Peticiones";
+import MainContext from "../../context/MainContext";
 
 export default function SelectorEntrenos({ entreno, setEntreno }) {
   const [entrenos, setEntrenos] = useState([]);
+  const {
+    emailUser
+  } = useContext(MainContext)
 
   useEffect(() => {
     const fetchEntrenos = async () => {
       try {
-        const usuarioEmail = localStorage.getItem('email') || sessionStorage.getItem('email')
+        const usuarioEmail = emailUser
         const response = await recuperarEntrenos(usuarioEmail);
         console.log(response)
         setEntrenos(response);

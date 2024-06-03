@@ -9,6 +9,7 @@ import AddExercise from './pages/AddExercise.jsx';
 import MakeTrain from "./pages/MakeTrain.jsx"
 import { Toaster } from 'react-hot-toast';
 import Entrenos from './pages/Entrenos.jsx';
+import { MainContextProvider } from './context/MainContext.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,8 +46,10 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+    <MainContextProvider>
       <RouterProvider router={router} />
       <Toaster position="top-center" />
+    </MainContextProvider>
     </>
   );
 }
