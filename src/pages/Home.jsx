@@ -4,7 +4,7 @@ import Registrar from "./Registrar";
 import Button from "../components/ui/button/Button";
 
 const bodyStyle = {
-    backgroundImage: 'url("../../public/img/home2.jpg")',
+    backgroundImage: 'url("../../img/home2.jpg")',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
