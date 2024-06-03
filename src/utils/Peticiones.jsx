@@ -1,14 +1,19 @@
-export default async function getUsuarios() {
+export default async function getUsuarios(emailUser) {
   try {
-    const formData = new FormData();
-    formData.append('getUsuarios', 'getUsuarios');
 
     const response = await fetch("http://localhost/api/api.php", {
       method: "POST",
-      body: formData
+      body: JSON.stringify({getUsuarios: emailUser}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
 
-    return response;
+    if(!response.ok) { throw new Error("Ha habido un error al recuperar los usuarios")}
+
+    const responseData = await response.json()
+
+    return responseData;
   } catch (error) {
     console.error("Error de red:", error);
   }
@@ -271,6 +276,26 @@ export async function guardarEjercicioEntreno(datos) {
     });
     console.log(response)
     if(!response.ok) { throw new Error("Ha habido un error al añadir iniciar sesion")}
+    const responseData = await response.json()
+    return responseData
+  } catch (error) {
+    console.error("Error de red:", error);
+  }
+}
+
+export async function borrarUsuario(usuarioID) {
+  try {
+    console.log("me llaman")
+    console.log(usuarioID)
+    const response = await fetch("http://localhost/api/api.php", {
+      method: "POST",
+      body: JSON.stringify({ borrarUsuario: usuarioID }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    console.log(response)
+    if(!response.ok) { throw new Error("Ha habido un error al borrar el usuario")}
     const responseData = await response.json()
     return responseData
   } catch (error) {
