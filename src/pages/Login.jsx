@@ -10,7 +10,8 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const {
-    setEmailUser
+    setEmailUser,
+    setUserCargo,
   } = useContext(MainContext)
 
   const handleSubmit = async (e) => {
@@ -19,6 +20,7 @@ export default function Login() {
     console.log(response);
     if (response.message === "sesion iniciada") {
       setEmailUser(emailLogin)
+      setUserCargo(response.admin)
       navigate("/front-page");
     } else {
       toast.error('Datos de usuario erróneos');
