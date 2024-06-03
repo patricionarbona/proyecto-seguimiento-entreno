@@ -4,7 +4,7 @@ const MainContext = createContext();
 
 export function MainContextProvider({ children }) {
   const [emailUser, setEmailUser] = useState("");
-  const [userCargo, setUserCargo] = useState("");
+  const [userCargo, setUserCargo] = useState(false);
 
   return (
     <MainContext.Provider value={{ 

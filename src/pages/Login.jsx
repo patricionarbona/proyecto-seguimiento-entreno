@@ -20,6 +20,7 @@ export default function Login() {
     console.log(response);
     if (response.message === "sesion iniciada") {
       setEmailUser(emailLogin)
+      console.log(response.admin === "0" ? false : true )
       setUserCargo(response.admin)
       navigate("/front-page");
     } else {

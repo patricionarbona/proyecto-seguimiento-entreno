@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import MainContext from "../../context/MainContext";
 
 export default function NavDesktop() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isGestionarOpen, setIsGestionarOpen] = useState(false);
+  const { userCargo } = useContext(MainContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleGestionar = () => {
+    setIsGestionarOpen(!isGestionarOpen);
   };
 
   return (
@@ -91,14 +98,36 @@ export default function NavDesktop() {
                   Gráficos
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/add-exercise"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
-                  Crear Ejercicio
-                </Link>
-              </li>
+              {userCargo && (
+                <li className="relative">
+                  <button
+                    onClick={toggleGestionar}
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  >
+                    Gestionar
+                  </button>
+                  {isGestionarOpen && (
+                    <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-100 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
+                      <li>
+                        <Link
+                          to="/manage-users"
+                          className="block py-2 px-4 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        >
+                          Gestionar Usuarios
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/manage-exercises"
+                          className="block py-2 px-4 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        >
+                          Gestionar Ejercicios
+                        </Link>
+                      </li>
+                    </ul>
+                  )}
+                </li>
+              )}
             </ul>
           </div>
         </div>
