@@ -28,10 +28,6 @@ export default function Login() {
     }
   };
 
-  const handleRegisterClick = () => {
-    navigate("/registrar");
-  };
-
   return (
     <div
       className="flex flex-col items-center gap-8"

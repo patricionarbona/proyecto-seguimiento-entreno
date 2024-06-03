@@ -10,6 +10,8 @@ import MakeTrain from "./pages/MakeTrain.jsx"
 import { Toaster } from 'react-hot-toast';
 import Entrenos from './pages/Entrenos.jsx';
 import { MainContextProvider } from './context/MainContext.jsx';
+import ManageUsers from './pages/ManageUsers.jsx';
+import ManageExercises from './pages/ManageExercises.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
   {
     path: "/my-trains",
     element: <Entrenos />
+  },
+  {
+    path: "/manage-users",
+    element: <ManageUsers />
+  },
+  {
+    path: "/manage-exercises",
+    element: <ManageExercises />
   }
 ]);
 

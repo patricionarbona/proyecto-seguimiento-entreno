@@ -7,7 +7,7 @@ export default function CardSaveEjercicio({ datosEjercicio, onClick, setPeso, se
 
   const nombreEjercicio = datosEjercicio.ejercicio;
   const rutaImg = `http://localhost/upload/${datosEjercicio.foto}`;
-  const musculo = datosEjercicio.musculos;
+  const musculo = datosEjercicio?.musculos;
   const recomendacion = datosEjercicio.descripcion;
 
   const handleVoltear = () => {
