@@ -3,6 +3,7 @@ import NavDesktop from "../components/NavDesktop/NavDesktop";
 import { recuperarEjercicios } from "../utils/Peticiones";
 import MainContext from "../context/MainContext";
 import toast from "react-hot-toast";
+import AddExercise from "./AddExercise.jsx"
 
 export default function ManageUsers() {
     const [ejercicios, setEjercicios] = useState([]);
@@ -26,6 +27,7 @@ export default function ManageUsers() {
     <div className="flex flex-col h-[100vh]">
       <NavDesktop />
       <div className="bg-teal-400 h-full mt-14">
+        <AddExercise />
         <table
             className="table-auto"
         >
