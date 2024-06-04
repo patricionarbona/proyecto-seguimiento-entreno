@@ -45,7 +45,9 @@ export default function ManageUsers() {
                       <td>{ejercicio.ejercicio}</td>
                       <td>{ejercicio.equipamiento}</td>
                       <td>{ejercicio.descripcion}</td>
-                      <td>{ejercicio.foto}</td>
+                      <td>
+                        <img src={`http://localhost/upload/${ejercicio.foto}`} alt="" />
+                      </td>
                       <td>{ejercicio.grupo}</td>
                       <td>{ejercicio.musculos}</td>
                       <td>
