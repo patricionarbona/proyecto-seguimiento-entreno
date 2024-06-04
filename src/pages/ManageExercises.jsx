@@ -1,13 +1,33 @@
 import { useContext, useEffect, useState } from "react";
 import NavDesktop from "../components/NavDesktop/NavDesktop";
-import { recuperarEjercicios } from "../utils/Peticiones";
+import { borrarEjercicio, recuperarEjercicios } from "../utils/Peticiones";
 import MainContext from "../context/MainContext";
 import toast from "react-hot-toast";
 import AddExercise from "./AddExercise.jsx"
 
 export default function ManageUsers() {
     const [ejercicios, setEjercicios] = useState([]);
+    const [isEdit, setIsEdit] = useState(null)
 
+    const handleClickDelete = (ejercicioId) => {
+      console.log(ejercicioId);
+      const deleteUsuario = async (ejercicioId) => {
+        try {
+          const response = await borrarEjercicio(ejercicioId);
+          if(response.message === "Eliminado el ejercicio") {
+            toast.success("Eliminado el ejercicio")
+            setEjercicios((prevEjercicios) => prevEjercicios.filter(ejercicio => ejercicio.id !== ejercicioId))
+          } else {
+            toast.error("No se pudo eliminar el usuario");
+          }
+          console.log(response);
+        } catch (err) {
+          console.error("Error al recuperar los ejercicios:", err);
+        }
+      };
+  
+      deleteUsuario(ejercicioId);
+    };
 
   useEffect(() => {
     const fetchEjercicios = async () => {
@@ -54,8 +74,8 @@ export default function ManageUsers() {
                       <td>{ejercicio.musculos}</td>
                       <td>
                         <button 
-                            // onClick={() => handleClickDelete(ejercicio.id)}
-                            >
+                          onClick={() => handleClickDelete(ejercicio.id)}
+                        >
                           Eliminar
                         </button>
                         <button>Editar</button>

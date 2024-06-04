@@ -302,3 +302,22 @@ export async function borrarUsuario(usuarioID) {
     console.error("Error de red:", error);
   }
 }
+
+export async function borrarEjercicio(ejercicioID) {
+  try {
+    console.log("me llaman")
+    const response = await fetch("http://localhost/api/api.php", {
+      method: "POST",
+      body: JSON.stringify({ borrarEjercicio: ejercicioID }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    console.log(response)
+    if(!response.ok) { throw new Error("Ha habido un error al borrar el usuario")}
+    const responseData = await response.json()
+    return responseData
+  } catch (error) {
+    console.error("Error de red:", error);
+  }
+}
