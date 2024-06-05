@@ -7,19 +7,13 @@ import toast from "react-hot-toast";
 export default function ManageUsers() {
   const { emailUser } = useContext(MainContext);
   const [usuarios, setUsuarios] = useState([]);
-
-  useEffect(() => {
-    const fetchEjercicios = async () => {
-      try {
-        const response = await getUsuarios(emailUser);
-        setUsuarios(response);
-      } catch (err) {
-        console.error("Error al recuperar los ejercicios:", err);
-      }
-    };
-
-    fetchEjercicios();
-  }, []);
+  const [isEditId, setIsEditId] = useState(null);
+  const [changeUsuario, setChangeUsuario] = useState({
+    id: null,
+    nombre: null,
+    email: null,
+    cargo: null,
+  });
 
   const handleClickDelete = (usuarioId) => {
     console.log(usuarioId);
@@ -38,6 +32,61 @@ export default function ManageUsers() {
     deleteUsuario(usuarioId);
   };
 
+  const handleClickEdit = (usuarioId) => {
+    const usuario = usuarios.find((usuario) => usuario.id === usuarioId);
+    if (usuario) {
+      setIsEditId(usuarioId);
+    }
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditId(null);
+    setChangeUsuario({
+      id: null,
+      nombre: null,
+      email: null,
+      cargo: null,
+    });
+  };
+
+  const handleConfirmEdit = (usuarioId) => {
+    console.log("confirmo");
+    const miCargo = usuarios.find((usuario) => usuario.id === usuarioId).cargo;
+    console.log(miCargo);
+
+    const updatedChangeUsuario = {
+      ...changeUsuario,
+      cargo: changeUsuario.cargo === null ? miCargo : changeUsuario.cargo,
+    };
+
+    setChangeUsuario(updatedChangeUsuario);
+
+    // Log the updated changeUsuario
+    console.log(updatedChangeUsuario);
+
+    toast.success("Editado el usuario");
+    setIsEditId(null);
+    setChangeUsuario({
+      id: null,
+      nombre: null,
+      email: null,
+      cargo: null,
+    });
+  };
+
+  useEffect(() => {
+    const fetchEjercicios = async () => {
+      try {
+        const response = await getUsuarios(emailUser);
+        setUsuarios(response);
+      } catch (err) {
+        console.error("Error al recuperar los ejercicios:", err);
+      }
+    };
+
+    fetchEjercicios();
+  }, []);
+
   return (
     <div className="flex flex-col h-[100vh]">
       <NavDesktop />
@@ -54,14 +103,68 @@ export default function ManageUsers() {
               console.log(usuario);
               return (
                 <tr key={`usr-${usuario.id}`}>
-                  <td>{usuario.nombre}</td>
-                  <td>{usuario.email}</td>
-                  <td>{usuario.cargo === 0 ? "Usuario" : "Administrador"}</td>
                   <td>
-                    <button onClick={() => handleClickDelete(usuario.id)}>
-                      Eliminar
-                    </button>
-                    <button>Editar</button>
+                    {isEditId === usuario.id ? (
+                      <input
+                        type="text"
+                        placeholder={usuario.nombre}
+                        value={changeUsuario.nombre || ""}
+                        onChange={(e) =>
+                          setChangeUsuario((prev) => ({
+                            ...prev,
+                            nombre: e.target.value,
+                          }))
+                        }
+                      />
+                    ) : (
+                      usuario.nombre
+                    )}
+                  </td>
+                  <td>
+                    {isEditId === usuario.id ? (
+                      <select
+                        onChange={(e) => {
+                          const cargo = e.target.value === "0" ? 0 : 1;
+                          console.log(cargo);
+                          setChangeUsuario((prev) => ({
+                            ...prev,
+                            cargo: cargo,
+                          }));
+                          console.log(changeUsuario);
+                        }}
+                      >
+                        <option selected={usuario.cargo === 0} value="0">
+                          Usuario
+                        </option>
+                        <option selected={usuario.cargo === 1} value="1">
+                          Administrador
+                        </option>
+                      </select>
+                    ) : usuario.cargo === 0 ? (
+                      "Usuario"
+                    ) : (
+                      "Administrador"
+                    )}
+                  </td>
+
+                  <td>
+                    {isEditId === usuario.id ? (
+                      <>
+                        <button onClick={handleCancelEdit}>Cancelar</button>
+                        <button onClick={() => handleConfirmEdit(usuario.id)}>
+                          Guardar
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button onClick={() => handleClickDelete(usuario.id)}>
+                          Eliminar
+                        </button>
+                        <button onClick={() => handleClickEdit(usuario.id)}>
+                          Editar
+                        </button>
+                      </>
+                    )}
                   </td>
                 </tr>
               );
