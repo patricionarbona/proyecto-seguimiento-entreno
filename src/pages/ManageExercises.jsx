@@ -1,19 +1,20 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import NavDesktop from "../components/NavDesktop/NavDesktop";
-import { borrarEjercicio, recuperarEjercicios } from "../utils/Peticiones";
-import MainContext from "../context/MainContext";
+import { borrarEjercicio, editarEjercicio, recuperarEjercicios } from "../utils/Peticiones";
 import toast from "react-hot-toast";
 import AddExercise from "./AddExercise.jsx";
 
-export default function ManageUsers() {
+export default function ManageExercises() {
   const [ejercicios, setEjercicios] = useState([]);
   const [isEdit, setIsEdit] = useState(null);
   const [changeEjercicio, setChangeEjercicio] = useState({
     id: null,
     ejercicio: null,
     equipamiento: null,
+    descripcion: null,
     grupo: null,
     musculos: null,
+    foto: null,
   });
 
   const handleClickDelete = (ejercicioId) => {
@@ -51,18 +52,33 @@ export default function ManageUsers() {
     setChangeEjercicio({
       id: null,
       ejercicio: null,
+      descripcion: null,
       equipamiento: null,
       grupo: null,
       musculos: null,
+      foto: null,
     });
   };
 
   const handleConfirmEdit = (ejercicioId) => {
-    setChangeEjercicio((prev) => ({
-      ...prev,
-      id: ejercicioId,
-    }))
+    const formData = new FormData();
+    formData.append("id",ejercicioId)
+    formData.append("nombre", changeEjercicio.ejercicio ? changeEjercicio.ejercicio : ejercicios.find((ej) => ej.id === ejercicioId).ejercicio);
+    formData.append("descripcion", changeEjercicio.descripcion);
+    formData.append("foto", changeEjercicio.foto);
+    formData.append("musculos", changeEjercicio.musculos);
+    formData.append("equipamiento", changeEjercicio.equipamiento);
+    formData.append("grupo", changeEjercicio.grupo);
     console.log(changeEjercicio)
+    console.log(ejercicioId)
+    editarEjercicio(formData)
+      .then((response) => {
+        console.log("Ejercicio creado:", response);
+        toast.success("Ejercicio creado");
+      })
+      .catch((error) => {
+        console.error("Error al crear el ejercicio:", error);
+      });
   }
 
   useEffect(() => {
@@ -152,10 +168,20 @@ export default function ManageUsers() {
                     )}
                   </td>
                   <td>
+                  {isEdit === ejercicio.id ? (
+                  <input
+                    type="file"
+                    onChange={(e) =>
+                      setChangeEjercicio((prev) => ({
+                        ...prev,
+                        foto: e.target.files[0],
+                      }))
+                    }
+                  />) : (
                     <img
                       src={`http://localhost/upload/${ejercicio.foto}`}
                       alt=""
-                    />
+                    />)}
                   </td>
                   <td>
                   {isEdit === ejercicio.id ? (
