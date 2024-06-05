@@ -122,6 +122,23 @@ export default function ManageUsers() {
                   </td>
                   <td>
                     {isEditId === usuario.id ? (
+                      <input
+                        type="text"
+                        placeholder={usuario.email}
+                        value={changeUsuario.email || ""}
+                        onChange={(e) =>
+                          setChangeUsuario((prev) => ({
+                            ...prev,
+                            email: e.target.value,
+                          }))
+                        }
+                      />
+                    ) : (
+                      usuario.email
+                    )}
+                  </td>
+                  <td>
+                    {isEditId === usuario.id ? (
                       <select
                         onChange={(e) => {
                           const cargo = e.target.value === "0" ? 0 : 1;
@@ -130,7 +147,6 @@ export default function ManageUsers() {
                             ...prev,
                             cargo: cargo,
                           }));
-                          console.log(changeUsuario);
                         }}
                       >
                         <option selected={usuario.cargo === 0} value="0">
@@ -146,7 +162,6 @@ export default function ManageUsers() {
                       "Administrador"
                     )}
                   </td>
-
                   <td>
                     {isEditId === usuario.id ? (
                       <>
