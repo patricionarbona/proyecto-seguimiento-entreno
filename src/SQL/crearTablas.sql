@@ -59,7 +59,7 @@ CREATE TABLE entreno_historico (
     fk_ejercicio INT,
     peso DECIMAL(10,2),
     series INT,
-    repeticiones VARCHAR(100),
+    repeticiones INT,
     observacion VARCHAR(255),
     fecha DATE,
     FOREIGN KEY (fk_usuario) REFERENCES usuario(id),

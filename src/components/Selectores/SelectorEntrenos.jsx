@@ -28,7 +28,7 @@ export default function SelectorEntrenos({ entreno, setEntreno }) {
       <select
         id="train"
         value={entreno}
-        onChange={(e) => setEntreno(e.target.value)}
+        onChange={(e) => setEntreno(parseInt(e.target.value))}
       >
         <option value="">Selecciona tu entreno</option>
         {entrenos.map((cat) => (
