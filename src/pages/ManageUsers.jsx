@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import NavDesktop from "../components/NavDesktop/NavDesktop";
-import getUsuarios, { borrarUsuario } from "../utils/Peticiones";
+import getUsuarios, { borrarUsuario, editarUsuario } from "../utils/Peticiones";
 import MainContext from "../context/MainContext";
 import toast from "react-hot-toast";
 
@@ -49,29 +49,37 @@ export default function ManageUsers() {
     });
   };
 
-  const handleConfirmEdit = (usuarioId) => {
-    console.log("confirmo");
+  const handleConfirmEdit = async (usuarioId) => {
     const miCargo = usuarios.find((usuario) => usuario.id === usuarioId).cargo;
-    console.log(miCargo);
 
     const updatedChangeUsuario = {
       ...changeUsuario,
       cargo: changeUsuario.cargo === null ? miCargo : changeUsuario.cargo,
+      id: usuarioId
     };
 
     setChangeUsuario(updatedChangeUsuario);
 
     // Log the updated changeUsuario
     console.log(updatedChangeUsuario);
+    try {
+      const response = await editarUsuario(updatedChangeUsuario);
+      if(response.message === "editado el usuario") {
+        toast.success("Editado el usuario");
+      setIsEditId(null);
+      setChangeUsuario({
+        id: null,
+        nombre: null,
+        email: null,
+        cargo: null,
+      })} else {
+        toast.error("No se pudo editar el usuario")
+      }
+    } catch (err) {
+      console.error("Error al recuperar los ejercicios:", err);
+    }
 
-    toast.success("Editado el usuario");
-    setIsEditId(null);
-    setChangeUsuario({
-      id: null,
-      nombre: null,
-      email: null,
-      cargo: null,
-    });
+    
   };
 
   useEffect(() => {
