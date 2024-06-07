@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useContext } from "react";
 import SelectorGrupos from "../components/Selectores/SelectorGrupos";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,12 +11,16 @@ import { crearEntreno, recuperarEjercicios, recuperarEjerciciosGrupo } from "../
 import toast from "react-hot-toast";
 import CardEjercicio from "../components/CardEjercicio/CardEjercicio";
 import NavDesktop from "../components/NavDesktop/NavDesktop";
+import MainContext from "../context/MainContext";
 
 export default function MakeTrain() {
   const [entreno, setEntreno] = useState("");
   const [ejercicios, setEjercicios] = useState([]);
   const [ejerciciosSeleccionados, setEjerciciosSeleccionados] = useState([]);
   const [grupo, setGrupo] = useState("");
+  const {
+    emailUser,
+  } = useContext(MainContext)
 
   useEffect(() => {
     const fetchEjercicios = async () => {
@@ -56,7 +60,7 @@ export default function MakeTrain() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = localStorage.getItem('email') || sessionStorage.getItem('email');
+    const email = emailUser;
     const data = {
       email: email,
       entreno: entreno,
