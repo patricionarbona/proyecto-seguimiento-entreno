@@ -4,13 +4,13 @@ export default function FrontPage() {
     return(
         <>
             <NavDesktop />
-            <div className="mt-16">
-                <div className="bg-white h-1/2 flex">
-                    <div >EJERCICIO</div>
-                    <div>GRAFICA</div>
+            <div className="mt-16 flex flex-col">
+                <div className="h-[47vh] flex flex-col sm:flex-row justify-between mt-4 w-11/12 mx-auto ">
+                    <div className="bg-white h-full w-3/12 rounded-2xl shadow-sm ">EJERCICIO</div>
+                    <div className="bg-white h-full w-7/12 rounded-2xl shadow-sm ">GRAFICA</div>
                 </div>
-                <div className="bg-white h-1/2">
-                    ENTRENO
+                <div className="bg-white flex h-[45vh] w-11/12 items-center justify-center my-4 mx-auto rounded-2xl shadow-sm">
+                    <p>ENTRENO</p>
                 </div>
             </div>
         </>
