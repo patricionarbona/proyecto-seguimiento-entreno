@@ -25,7 +25,7 @@ export default function SelectorGrupos({ grupo, setGrupo }) { // Recibir grupo y
         onChange={(e) => setGrupo(e.target.value)} // Usar setGrupo de las props
         required
       >
-        <option value="">Selecciona una categoría</option>
+        <option value="">Todas</option>
         {categories.map((cat) => (
           <option key={cat.id} value={cat.grupo}>
             {cat.grupo}
