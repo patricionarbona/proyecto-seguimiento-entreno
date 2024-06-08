@@ -31,7 +31,7 @@ export default function CardEjercicio({
           (isVolteado ? " [transform:rotateY(-180deg)]" : "")
         }
       >
-        <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] flex flex-col justify-center bg-slate-300">
+        <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] flex flex-col justify-center">
           <button
             onClick={handleVoltear}
             className={
@@ -54,15 +54,15 @@ export default function CardEjercicio({
               />
             </svg>
           </button>
-          <div className="h-5/6 mt-9">
+          <div className="h-5/6 mt-9 flex flex-col items-center">
             <h3>{nombreEjercicio}</h3>
             <img className="h-20 w-20" src={rutaImg} alt="" />
             <h4>Músculos implicados</h4>
-            <p>{musculo}</p>
+            <p className="capitalize">{musculo}</p>
           </div>
           <Button text={variantText[variant]} onClick={onClick} />
         </div>
-        <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col bg-slate-300">
+        <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col">
           <button
             onClick={handleVoltear}
             className={
