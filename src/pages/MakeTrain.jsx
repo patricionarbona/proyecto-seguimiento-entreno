@@ -85,7 +85,7 @@ export default function MakeTrain() {
         <div className="flex-1">
           
           <SelectorGrupos grupo={grupo} setGrupo={setGrupo} />
-          <div className="bg-teal-500 w-full flex flex-wrap gap-4 p-4 rounded mt-4">
+          <div className="w-full flex flex-wrap gap-4 p-4 rounded mt-4">
             {ejerciciosFiltrados.map((ejercicio, index) => (
               <CardEjercicio
                 datosEjercicio={ejercicio}
@@ -99,15 +99,15 @@ export default function MakeTrain() {
         {/* Sección de ejercicios seleccionados */}
         <div className="flex flex-col w-1/4"> {/* Ajusta el ancho según sea necesario */}
           <form action="#" onSubmit={handleSubmit} className="flex flex-col h-full">
-          <div className="mb-6">
-            <label htmlFor="entreno" className="block mb-2 font-bold">Nombre del entreno</label>
+          <div className="mb-6 flex  items-center gap-2">
+            <label htmlFor="entreno" className="font-bold w-40">Nombre del entreno</label>
             <input
               type="text"
               id="entreno"
               value={entreno}
               onChange={(e) => setEntreno(e.target.value)}
               required
-              className="w-full p-2 border border-gray-300 rounded"
+              className="w-60 h-10 border border-gray-300 rounded-md shadow-md"
             />
           </div>
           <button
@@ -116,7 +116,7 @@ export default function MakeTrain() {
             >
               Crear Entreno
             </button>
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto items-center mt-4">
               <Swiper
                 direction={'vertical'}
                 pagination={{
@@ -125,13 +125,15 @@ export default function MakeTrain() {
                 modules={[Pagination]}
                 autoHeight={true}
                 slidesPerView={3}
-                className="h-[99vh]"
+                className="h-[80vh]"
                 loop={true}
                 onSwiper={(swiper) => console.log(swiper)}
               >
                 {ejerciciosSeleccionados.length > 0
                   ? ejerciciosSeleccionados.map((ejercicio, index) => (
-                    <SwiperSlide key={`slc-${ejercicio.id}`}>
+                    <SwiperSlide key={`slc-${ejercicio.id}`}
+                      className="flex justify-center"
+                    >
                       <CardEjercicio
                         datosEjercicio={ejercicio}
                         key={`c-slc-${ejercicio.id}`}

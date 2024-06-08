@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../ui/button/Button";
 
 export default function CardEjercicio({ datosEjercicio, onClick, variant="add" }) {
     const [isVolteado, setVolteado] = useState(false);
@@ -19,7 +20,7 @@ export default function CardEjercicio({ datosEjercicio, onClick, variant="add" }
     };
 
     return (
-        <div className="relative h-72 w-48  [perspective:1000px] ">
+        <div className="relative h-72 w-48  [perspective:1000px] shadow-md">
         <div
             className={
             "absolute h-full w-full [transition:1s] [transform-style:preserve-3d] " +
@@ -54,7 +55,7 @@ export default function CardEjercicio({ datosEjercicio, onClick, variant="add" }
                 <img className="h-20 w-20" src={rutaImg} alt="" />
                 <h4>Músculos implicados</h4>
                 <p>{musculo}</p>
-                <button onClick={onClick} type="button">{variantText[variant]}</button> {/* Aquí también */}
+                <Button text={variantText[variant]} onClick={onClick} />
             </div>
             </div>
             <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col bg-slate-300">
@@ -84,7 +85,7 @@ export default function CardEjercicio({ datosEjercicio, onClick, variant="add" }
             <p className="leading-8 text-ellipsis overflow-hidden h-5/6">
                 {recomendacion}
             </p>
-            <button onClick={onClick} type="button">{variantText[variant]}</button> {/* Y aquí */}
+                <Button text={variantText[variant]} onClick={onClick} />
             </div>
         </div>
         </div>
