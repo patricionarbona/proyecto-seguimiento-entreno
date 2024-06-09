@@ -198,9 +198,6 @@ export default function ManageUsers() {
                       </>
                     ) : (
                       <>
-                        {/* <button onClick={() => handleClickDelete(usuario.id)}>
-                          Eliminar
-                        </button> */}
                         <Button
                           text={"Eliminar"}
                           variant="red"
@@ -210,9 +207,6 @@ export default function ManageUsers() {
                           text={"Editar"}
                           onClick={() => handleClickEdit(usuario.id)}
                         />
-                        {/* <button onClick={() => handleClickEdit(usuario.id)}>
-                          Editar
-                        </button> */}
                       </>
                     )}
                   </td>
