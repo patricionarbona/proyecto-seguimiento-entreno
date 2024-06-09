@@ -54,11 +54,11 @@ export default function CardSaveEjercicio({
               />
             </svg>
           </button>
-          <div>
+          <div className="h-5/6 mb-5 flex flex-col items-center">
             <h3>{nombreEjercicio}</h3>
-            <img className="h-20 w-20" src={rutaImg} alt="" />
-            <h4>Músculos implicados</h4>
-            <p>{musculo}</p>
+            <img className="h-14 w-14" src={rutaImg} alt="" />
+            {/* <h4>Músculos implicados</h4>
+            <p>{musculo}</p> */}
             <label htmlFor="inputPeso">Peso</label>
             <input
               id="inputPeso"
@@ -89,11 +89,8 @@ export default function CardSaveEjercicio({
               className="ml-1 w-44 h-8 border border-gray-300 rounded-md shadow-xs px-1"
               onChange={(e) => setObservacion(e.target.value)}
             />
-            {/* <button onClick={onClick} type="button">
-              Añadir
-            </button> */}
           </div>
-            <Button text={"Hecho"} onClick={onClick} />
+          <Button text={"Hecho"} onClick={onClick} />
         </div>
         <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col">
           <button
