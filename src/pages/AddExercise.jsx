@@ -36,20 +36,23 @@ export default function AddExercise() {
   };
 
   return (
-    <div className="flex flex-row w-full">
-      <h2>Crear Ejercicio</h2>
+    // <div className="flex flex-row justify-between w-full bg-slate-300">
       <form
         action="api.php"
         onSubmit={handleSubmit}
         method="post"
         encType="multipart/form-data"
-        className="flex"
-      >
+        className="flex md:w-full justify-evenly md:items-center flex-col md:flex-row gap-4 mx-auto"
+        >
+        <h2
+          className=""
+        >Crear Ejercicio</h2>
         <div
-            className="flex"
+            className="flex flex-col md:flex-row items-start md:items-center"
         >
           <label htmlFor="nombre">Nombre</label>
           <input
+            className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1"
             type="text"
             id="nombre"
             value={nombre}
@@ -58,20 +61,22 @@ export default function AddExercise() {
           />
         </div>
         <div
-        className="flex"
+        className="flex flex-col md:flex-row items-start md:items-center"
         >
           <label htmlFor="observaciones">Observaciones</label>
           <textarea
             id="observaciones"
             value={observaciones}
             onChange={(e) => setObservaciones(e.target.value)}
+            className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1 py-2"
           />
         </div>
         <div
-        className="flex"
+        className="flex flex-col md:flex-row items-start md:items-center"
         >
           <label htmlFor="foto">Foto</label>
           <input
+            className="md:ml-2 w-60 h-8"
             type="file"
             id="foto"
             name="exercisePhoto"
@@ -80,10 +85,11 @@ export default function AddExercise() {
           />
         </div>
         <div
-        className="flex"
+        className="flex flex-col md:flex-row items-start md:items-center"
         >
           <label htmlFor="musculos">Músculos</label>
           <input
+            className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1"
             type="text"
             id="musculos"
             value={musculos}
@@ -92,10 +98,11 @@ export default function AddExercise() {
           />
         </div>
         <div
-        className="flex"
+        className="flex flex-col md:flex-row items-start md:items-center"
         >
           <label htmlFor="equipamiento">Equipamiento</label>
           <input
+            className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1"
             type="text"
             id="equipamiento"
             value={equipamiento}
@@ -107,19 +114,11 @@ export default function AddExercise() {
         {/* Pasar grupo y setGrupo como props */}
         <button
           type="submit"
-          style={{
-            width: "100%",
-            padding: "10px",
-            backgroundColor: "#28a745",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
+          className="border-2 border-blue-400 bg-blue-400 py-1 rounded text-gray-50 hover:bg-blue-300 px-1 text-base"
         >
           Crear Ejercicio
         </button>
       </form>
-    </div>
+    // </div>
   );
 }

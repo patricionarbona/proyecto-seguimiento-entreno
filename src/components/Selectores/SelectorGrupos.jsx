@@ -17,10 +17,11 @@ export default function SelectorGrupos({ grupo, setGrupo }) { // Recibir grupo y
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col md:flex-row items-start md:items-center">
       <label htmlFor="category">Categoría:</label>
       <select
         id="category"
+        className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs"
         value={grupo} // Usar grupo de las props
         onChange={(e) => setGrupo(e.target.value)} // Usar setGrupo de las props
         required
