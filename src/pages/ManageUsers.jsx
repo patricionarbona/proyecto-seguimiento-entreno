@@ -3,6 +3,7 @@ import NavDesktop from "../components/NavDesktop/NavDesktop";
 import getUsuarios, { borrarUsuario, editarUsuario } from "../utils/Peticiones";
 import MainContext from "../context/MainContext";
 import toast from "react-hot-toast";
+import Button from "../components/ui/button/Button";
 
 export default function ManageUsers() {
   const { emailUser } = useContext(MainContext);
@@ -98,8 +99,8 @@ export default function ManageUsers() {
   return (
     <div className="flex flex-col h-[100vh]">
       <NavDesktop />
-      <div className="bg-teal-400 h-full mt-14">
-        <table>
+      <div className="bg-teal-400 h-full mt-16 flex items-center justify-center">
+        <table className="">
           <thead>
             <th>Nombre</th>
             <th>Email</th>
@@ -180,12 +181,14 @@ export default function ManageUsers() {
                       </>
                     ) : (
                       <>
-                        <button onClick={() => handleClickDelete(usuario.id)}>
+                        {/* <button onClick={() => handleClickDelete(usuario.id)}>
                           Eliminar
-                        </button>
-                        <button onClick={() => handleClickEdit(usuario.id)}>
+                        </button> */}
+                        <Button text={"Eliminar"} variant="red" onClick={() => handleClickDelete(usuario.id)} />
+                        <Button text={"Editar"} onClick={() => handleClickEdit(usuario.id)} />
+                        {/* <button onClick={() => handleClickEdit(usuario.id)}>
                           Editar
-                        </button>
+                        </button> */}
                       </>
                     )}
                   </td>
