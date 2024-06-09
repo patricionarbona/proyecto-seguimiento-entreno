@@ -60,10 +60,10 @@ export default function Entrenos() {
   return (
     <>
     <NavDesktop />
-    <div className="mt-16">
+    <div className="h-full md:mt-16 mt-[75px] ">
       <SelectorEntrenos entreno={entreno} setEntreno={setEntreno} />
 
-      <div className="flex flex-wrap gap-16">
+      <div className="flex flex-wrap gap-16 mt-6  justify-center md:justify-normal">
         {/* <Swiper
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={50}

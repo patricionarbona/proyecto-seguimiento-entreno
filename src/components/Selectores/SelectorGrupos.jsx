@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { recuperarGrupos } from "../../utils/Peticiones";
 
-export default function SelectorGrupos({ grupo, setGrupo }) { // Recibir grupo y setGrupo como props
+export default function SelectorGrupos({ grupo, setGrupo, variant = "" }) {
+  // Recibir grupo y setGrupo como props
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -26,12 +27,28 @@ export default function SelectorGrupos({ grupo, setGrupo }) { // Recibir grupo y
         onChange={(e) => setGrupo(e.target.value)} // Usar setGrupo de las props
         required
       >
-        <option value="">Todas</option>
+        {/* <option value="">Todas</option>
         {categories.map((cat) => (
           <option key={cat.id} value={cat.grupo}>
             {cat.grupo}
           </option> // 'cat.grupo' asumo que es el valor correcto
-        ))}
+        ))} */}
+        {variant === "" ? (
+          <>
+            <option value="">Todas</option>
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.grupo}>
+                {cat.grupo}
+              </option>
+            ))}
+          </>
+        ) : (
+          categories.map((cat) => (
+            <option key={cat.id} value={cat.grupo}>
+              {cat.grupo}
+            </option>
+          ))
+        )}
       </select>
     </div>
   );

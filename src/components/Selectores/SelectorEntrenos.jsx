@@ -23,10 +23,11 @@ export default function SelectorEntrenos({ entreno, setEntreno }) {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col md:flex-row items-start md:items-center">
       <label htmlFor="train">Entrenos:</label>
       <select
         id="train"
+        className="mt-2 md:ml-2 md:mt-0 w-60 h-8 border border-gray-300 rounded-md shadow-xs"
         value={entreno}
         onChange={(e) => setEntreno(parseInt(e.target.value))}
       >

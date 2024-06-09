@@ -110,7 +110,7 @@ export default function AddExercise() {
             required
           />
         </div>
-        <SelectorGrupos grupo={grupo} setGrupo={setGrupo} />{" "}
+        <SelectorGrupos grupo={grupo} setGrupo={setGrupo} variant="d" />{" "}
         {/* Pasar grupo y setGrupo como props */}
         <button
           type="submit"
