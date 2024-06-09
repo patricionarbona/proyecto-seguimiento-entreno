@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../ui/button/Button";
 
 export default function CardSaveEjercicio({
   datosEjercicio,
@@ -23,14 +24,14 @@ export default function CardSaveEjercicio({
   };
 
   return (
-    <div className="relative h-72 w-48  [perspective:1000px] ">
+    <div className="relative h-80 w-52  [perspective:1000px] ">
       <div
         className={
           "absolute h-full w-full [transition:1s] [transform-style:preserve-3d] " +
           (isVolteado ? " [transform:rotateY(-180deg)]" : "")
         }
       >
-        <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] flex flex-col justify-center bg-slate-300 p-0 ">
+        <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] flex flex-col justify-center">
           <button
             onClick={handleVoltear}
             className={
@@ -62,6 +63,7 @@ export default function CardSaveEjercicio({
             <input
               id="inputPeso"
               type="number"
+              className="ml-1 w-44 h-8 border border-gray-300 rounded-md shadow-xs px-1"
               onChange={(e) => setPeso(parseFloat(e.target.value))}
               required
             />
@@ -69,6 +71,7 @@ export default function CardSaveEjercicio({
             <input
               id="inputSeries"
               type="number"
+              className="ml-1 w-44 h-8 border border-gray-300 rounded-md shadow-xs px-1"
               onChange={(e) => setSeries(parseInt(e.target.value))}
               required
             />
@@ -76,20 +79,23 @@ export default function CardSaveEjercicio({
             <input
               id="inputRepeticiones"
               type="number"
+              className="ml-1 w-44 h-8 border border-gray-300 rounded-md shadow-xs px-1"
               onChange={(e) => setRepeticiones(parseInt(e.target.value))}
               required
             />
             <label htmlFor="inputObservaciones">Observaciones</label>
             <textarea
               id="inputObservaciones"
+              className="ml-1 w-44 h-8 border border-gray-300 rounded-md shadow-xs px-1"
               onChange={(e) => setObservacion(e.target.value)}
             />
-            <button onClick={onClick} type="button">
+            {/* <button onClick={onClick} type="button">
               Añadir
-            </button>
+            </button> */}
           </div>
+            <Button text={"Hecho"} onClick={onClick} />
         </div>
-        <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col bg-slate-300">
+        <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col">
           <button
             onClick={handleVoltear}
             className={
@@ -113,12 +119,13 @@ export default function CardSaveEjercicio({
             </svg>
           </button>
           <h3>Instrucciones</h3>
-          <p className="leading-8 text-ellipsis overflow-hidden h-5/6">
+          <p className="leading-8 text-ellipsis overflow-hidden overflow-y-scroll h-5/6">
             {recomendacion}
           </p>
-          <button onClick={onClick} type="button">
+          {/* <button onClick={onClick} type="button">
             Hecho
-          </button>
+          </button> */}
+          <Button text={"Hecho"} onClick={onClick} />
         </div>
       </div>
     </div>
