@@ -30,7 +30,7 @@ export default function Login() {
 
   return (
     <div
-      className="flex flex-col items-center gap-8 h-full"
+      className="flex flex-col items-center gap-8 h-full justify-evenly"
 
     >
       <form onSubmit={handleSubmit}>

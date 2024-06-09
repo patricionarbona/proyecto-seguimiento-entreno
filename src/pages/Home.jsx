@@ -42,7 +42,7 @@ export default function Home() {
       >
         <div className="flex flex-col items-center justify-center w-96 md:w-1/3 lg:w-1/5 h-1/2 sm:mr-10 rounded-xl shadow-xl bg-slate-400">
           <div className="flex flex-col items-center justify-between w-4/5 gap-8 bg-red-400 h-full">
-            <div className="h-96 bg-teal-200 w-full">
+            <div className="h-full bg-teal-200 w-full">
             {renderContent()}
             </div>
             <div className="flex justify-between mx-auto gap-8 mb-8">
