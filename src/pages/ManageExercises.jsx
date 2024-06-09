@@ -98,25 +98,29 @@ export default function ManageExercises() {
   return (
     <div className="flex flex-col h-[100vh]">
       <NavDesktop />
-      <div className="bg-teal-400 h-full mt-14">
+      <div className="md:mt-16 mt-[75px]">
         <AddExercise />
-        <table className="table-auto">
+        <table className="w-full align-middle gap-4 border-separate border-spacing-y-4 bg-slate-50">
           <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Equipamiento</th>
-              <th>Ejecución</th>
-              <th>Foto</th>
-              <th>Grupo muscular principal</th>
-              <th>Musculos secundarios</th>
-              <th>Acciones</th>
+            <tr className="block md:table-row border-2 border-slate-300 p-2 my-0 md:my-4">
+              <th className="block md:table-cell md:text-left border md:border-0 my-2 border-slate-500">Nombre</th>
+              <th className="block md:table-cell md:text-left border md:border-0 my-2 border-slate-500">Equipamiento</th>
+              <th className="block md:table-cell md:text-left border md:border-0 my-2 border-slate-500">Ejecución</th>
+              <th className="block md:table-cell md:text-left border md:border-0 my-2 border-slate-500">Foto</th>
+              <th className="block md:table-cell md:text-left border md:border-0 my-2 border-slate-500">Grupo muscular principal</th>
+              <th className="block md:table-cell md:text-left border md:border-0 my-2 border-slate-500">Musculos secundarios</th>
+              <th className="block md:table-cell md:text-left border md:border-0 my-2 border-slate-500">Acciones</th>
             </tr>
           </thead>
           <tbody>
             {ejercicios.map((ejercicio) => {
               return (
-                <tr key={`exc-${ejercicio.id}`}>
-                  <td>
+                <tr key={`exc-${ejercicio.id}`}
+                    className="block md:table-row border-2 border-slate-300 p-2 my-2 hover:bg-slate-200"
+                >
+                  <td
+                    className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500"
+                  >
                     {isEdit === ejercicio.id ? (
                       <input
                         type="text"
@@ -133,7 +137,9 @@ export default function ManageExercises() {
                       ejercicio.ejercicio
                     )}
                   </td>
-                  <td>
+                  <td
+                    className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500"
+                  >
                   {isEdit === ejercicio.id ? (
                       <input
                         type="text"
@@ -150,7 +156,9 @@ export default function ManageExercises() {
                       ejercicio.equipamiento
                     )}
                   </td>
-                  <td>
+                  <td
+                    className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500"
+                  >
                   {isEdit === ejercicio.id ? (
                       <input
                         type="text"
@@ -167,7 +175,9 @@ export default function ManageExercises() {
                       ejercicio.descripcion
                     )}
                   </td>
-                  <td>
+                  <td
+                    className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500"
+                  >
                   {isEdit === ejercicio.id ? (
                   <input
                     type="file"
@@ -179,11 +189,14 @@ export default function ManageExercises() {
                     }
                   />) : (
                     <img
+                      className="h-40 w-40 mx-auto"
                       src={`http://localhost/upload/${ejercicio.foto}`}
                       alt=""
                     />)}
                   </td>
-                  <td>
+                  <td
+                    className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500"
+                  >
                   {isEdit === ejercicio.id ? (
                       <input
                         type="text"
@@ -200,7 +213,9 @@ export default function ManageExercises() {
                       ejercicio.grupo
                     )}
                     </td>
-                  <td>
+                  <td
+                    className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500"
+                  >
                   {isEdit === ejercicio.id ? (
                       <input
                         type="text"
@@ -217,7 +232,9 @@ export default function ManageExercises() {
                       ejercicio.musculos
                     )}
                   </td>
-                  <td>
+                  <td
+                    className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500"
+                  >
                     {isEdit === ejercicio.id ? (
                       <>
                         <button onClick={handleCancelEdit}>Cancelar</button>
