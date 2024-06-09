@@ -186,10 +186,15 @@ export default function ManageUsers() {
                   <td className="flex flex-col gap-2 my-2 border-slate-500">
                     {isEditId === usuario.id ? (
                       <>
-                        <button onClick={handleCancelEdit}>Cancelar</button>
-                        <button onClick={() => handleConfirmEdit(usuario.id)}>
-                          Guardar
-                        </button>
+                        <Button
+                          text={"Cancelar"}
+                          variant="red"
+                          onClick={() => handleCancelEdit(usuario.id)}
+                        />
+                        <Button
+                          text={"Guardar"}
+                          onClick={() => handleConfirmEdit(usuario.id)}
+                        />
                       </>
                     ) : (
                       <>
