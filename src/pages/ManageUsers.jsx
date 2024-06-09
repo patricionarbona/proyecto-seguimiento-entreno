@@ -56,7 +56,7 @@ export default function ManageUsers() {
     const updatedChangeUsuario = {
       ...changeUsuario,
       cargo: changeUsuario.cargo === null ? miCargo : changeUsuario.cargo,
-      id: usuarioId
+      id: usuarioId,
     };
 
     setChangeUsuario(updatedChangeUsuario);
@@ -65,22 +65,21 @@ export default function ManageUsers() {
     console.log(updatedChangeUsuario);
     try {
       const response = await editarUsuario(updatedChangeUsuario);
-      if(response.message === "editado el usuario") {
+      if (response.message === "editado el usuario") {
         toast.success("Editado el usuario");
-      setIsEditId(null);
-      setChangeUsuario({
-        id: null,
-        nombre: null,
-        email: null,
-        cargo: null,
-      })} else {
-        toast.error("No se pudo editar el usuario")
+        setIsEditId(null);
+        setChangeUsuario({
+          id: null,
+          nombre: null,
+          email: null,
+          cargo: null,
+        });
+      } else {
+        toast.error("No se pudo editar el usuario");
       }
     } catch (err) {
       console.error("Error al recuperar los ejercicios:", err);
     }
-
-    
   };
 
   useEffect(() => {
@@ -99,20 +98,33 @@ export default function ManageUsers() {
   return (
     <div className="flex flex-col h-[100vh]">
       <NavDesktop />
-      <div className="bg-teal-400 h-full mt-16 flex items-center justify-center">
-        <table className="">
+      <div className="h-full md:mt-16 mt-[75px] ">
+        <table className="w-full align-middle gap-4 border-separate border-spacing-y-4 bg-slate-50">
           <thead>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Cargo</th>
-            <th>Acciones</th>
+            <tr className="block md:table-row border-2 border-slate-300 p-2 my-0 md:my-4">
+              <th className="block md:table-cell md:text-left border md:border-0 my-2 border-slate-500">
+                Nombre
+              </th>
+              <th className="block md:table-cell md:text-left border md:border-0 my-2 border-slate-500">
+                Email
+              </th>
+              <th className="block md:table-cell md:text-left border md:border-0 my-2 border-slate-500">
+                Cargo
+              </th>
+              <th className="block md:table-cell  border md:border-0 my-2 border-slate-500">
+                Acciones
+              </th>
+            </tr>
           </thead>
           <tbody>
             {usuarios.map((usuario) => {
               console.log(usuario);
               return (
-                <tr key={`usr-${usuario.id}`}>
-                  <td>
+                <tr
+                  key={`usr-${usuario.id}`}
+                  className="block md:table-row border-2 border-slate-300 p-2 my-2 hover:bg-slate-200"
+                >
+                  <td className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500">
                     {isEditId === usuario.id ? (
                       <input
                         type="text"
@@ -129,7 +141,7 @@ export default function ManageUsers() {
                       usuario.nombre
                     )}
                   </td>
-                  <td>
+                  <td className=" block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500">
                     {isEditId === usuario.id ? (
                       <input
                         type="text"
@@ -146,7 +158,7 @@ export default function ManageUsers() {
                       usuario.email
                     )}
                   </td>
-                  <td>
+                  <td className=" block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500">
                     {isEditId === usuario.id ? (
                       <select
                         onChange={(e) => {
@@ -171,7 +183,7 @@ export default function ManageUsers() {
                       "Administrador"
                     )}
                   </td>
-                  <td>
+                  <td className="flex flex-col gap-2 my-2 border-slate-500">
                     {isEditId === usuario.id ? (
                       <>
                         <button onClick={handleCancelEdit}>Cancelar</button>
@@ -184,8 +196,15 @@ export default function ManageUsers() {
                         {/* <button onClick={() => handleClickDelete(usuario.id)}>
                           Eliminar
                         </button> */}
-                        <Button text={"Eliminar"} variant="red" onClick={() => handleClickDelete(usuario.id)} />
-                        <Button text={"Editar"} onClick={() => handleClickEdit(usuario.id)} />
+                        <Button
+                          text={"Eliminar"}
+                          variant="red"
+                          onClick={() => handleClickDelete(usuario.id)}
+                        />
+                        <Button
+                          text={"Editar"}
+                          onClick={() => handleClickEdit(usuario.id)}
+                        />
                         {/* <button onClick={() => handleClickEdit(usuario.id)}>
                           Editar
                         </button> */}
