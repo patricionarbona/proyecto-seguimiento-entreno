@@ -55,7 +55,7 @@ export default function CardEjercicio({
             </svg>
           </button>
           <div className="h-5/6 mt-9 flex flex-col items-center">
-            <h3>{nombreEjercicio}</h3>
+            <h3 className="mb-1">{nombreEjercicio}</h3>
             <img className="h-20 w-20" src={rutaImg} alt="" />
             <h4>Músculos implicados</h4>
             <p className="capitalize">{musculo}</p>

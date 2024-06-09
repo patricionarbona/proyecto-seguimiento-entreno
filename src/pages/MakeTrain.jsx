@@ -82,7 +82,7 @@ export default function MakeTrain() {
     <NavDesktop />
       <div className="flex gap-6 p-6 mt-16">
         {/* Sección de ejercicios disponibles */}
-        <div className="flex-1">
+        <div className="">
           
           <SelectorGrupos grupo={grupo} setGrupo={setGrupo} />
           <div className="w-full flex flex-wrap gap-4 p-4 rounded mt-4">
@@ -97,9 +97,9 @@ export default function MakeTrain() {
         </div>
 
         {/* Sección de ejercicios seleccionados */}
-        <div className="flex flex-col w-1/4"> {/* Ajusta el ancho según sea necesario */}
-          <form action="#" onSubmit={handleSubmit} className="flex flex-col h-full">
-          <div className="mb-6 flex  items-center gap-2">
+        <div className=""> {/* Ajusta el ancho según sea necesario */}
+          <form action="#" onSubmit={handleSubmit} className="flex flex-col h-full mr-2">
+          <div className="flex flex-col md:flex-row items-start md:items-center mb-4">
             <label htmlFor="entreno" className="font-bold w-40">Nombre del entreno</label>
             <input
               type="text"
@@ -107,12 +107,12 @@ export default function MakeTrain() {
               value={entreno}
               onChange={(e) => setEntreno(e.target.value)}
               required
-              className="w-60 h-10 border border-gray-300 rounded-md shadow-md"
+              className="md:ml-2 w-52 md:w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1 mr-1"
             />
           </div>
           <button
               type="submit"
-              className="mt-4 py-2 bg-green-600 text-white rounded"
+              className="border-2 border-blue-400 bg-blue-400 py-1 rounded text-gray-50 hover:bg-blue-300 px-1 text-base mr-1"
             >
               Crear Entreno
             </button>
@@ -125,7 +125,7 @@ export default function MakeTrain() {
                 modules={[Pagination]}
                 autoHeight={true}
                 slidesPerView={3}
-                className="h-[80vh]"
+                className="md:h-[80vh] h-screen"
                 loop={true}
                 onSwiper={(swiper) => console.log(swiper)}
               >
