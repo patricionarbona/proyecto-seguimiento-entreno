@@ -7,6 +7,7 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import CardSaveEjercicio from "../components/CardEjercicio/CardSaveExercise";
+import NavDesktop from "../components/NavDesktop/NavDesktop";
 
 export default function Entrenos() {
   const [entreno, setEntreno] = useState("");
@@ -57,7 +58,9 @@ export default function Entrenos() {
   };
 
   return (
-    <div>
+    <>
+    <NavDesktop />
+    <div className="mt-16">
       <SelectorEntrenos entreno={entreno} setEntreno={setEntreno} />
 
       <div className="flex flex-wrap gap-16">
@@ -88,5 +91,6 @@ export default function Entrenos() {
         {/* </Swiper> */}
       </div>
     </div>
+    </>
   );
 }
