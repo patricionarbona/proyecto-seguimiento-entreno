@@ -1,4 +1,5 @@
 import NavDesktop from "../components/NavDesktop/NavDesktop"
+import Entrenos from "./Entrenos"
 
 export default function FrontPage() {
     return(
@@ -9,8 +10,8 @@ export default function FrontPage() {
                     <div className="bg-slate-300 h-full w-3/12 rounded-2xl shadow-sm ">EJERCICIO</div>
                     <div className="bg-slate-300 h-full w-7/12 rounded-2xl shadow-sm ">GRAFICA</div>
                 </div>
-                <div className="bg-slate-300 flex h-[45vh] w-11/12 items-center justify-center my-4 mx-auto rounded-2xl shadow-sm">
-                    <p>ENTRENO</p>
+                <div className="bg-slate-300 flex h-full w-11/12 items-center justify-center my-4 mx-auto rounded-2xl shadow-sm">
+                    <Entrenos variant="front"/>
                 </div>
             </div>
         </>

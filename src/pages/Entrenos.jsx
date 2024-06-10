@@ -4,12 +4,10 @@ import {
   guardarEjercicioEntreno,
   recuperarEjerciciosEntreno,
 } from "../utils/Peticiones";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import CardSaveEjercicio from "../components/CardEjercicio/CardSaveExercise";
 import NavDesktop from "../components/NavDesktop/NavDesktop";
 
-export default function Entrenos() {
+export default function Entrenos({ variant = "" }) {
   const [entreno, setEntreno] = useState("");
   const [ejerciciosEntreno, setEjerciciosEntreno] = useState([]);
   const [peso, setPeso] = useState(0);
@@ -30,11 +28,9 @@ export default function Entrenos() {
       }
     };
     fetchEjercicios(entreno);
-    // setEntreno()
   }, [entreno]);
 
   const handleSubmit = async (e, ejercicioId) => {
-    // e.preventDefault();
     console.log(entreno);
     console.log(ejercicioId)
     console.log(e)
@@ -60,38 +56,24 @@ export default function Entrenos() {
 
   return (
     <>
-    <NavDesktop />
-    <div className="h-full md:mt-16 mt-[75px] ">
-      <SelectorEntrenos entreno={entreno} setEntreno={setEntreno} />
-
-      <div className="flex flex-wrap gap-16 mt-6  justify-center md:justify-normal">
-        {/* <Swiper
-                    modules={[Navigation, Pagination, Scrollbar, A11y]}
-                    spaceBetween={50}
-                    slidesPerView={3}
-                    navigation
-                    pagination={{ clickable: true }}
-                    scrollbar={{ draggable: true }}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log("slide change")}
-                > */}
-        {ejerciciosEntreno.length > 0 &&
-          ejerciciosEntreno.map((ejercicio) => (
-            // <SwiperSlide key={`slc-${ejercicio.id}`}>
-            <CardSaveEjercicio
-              key={`slc-${ejercicio.id}`}
-              datosEjercicio={ejercicio}
-              onClick={(e) => handleSubmit(e, ejercicio.id)}
-              setPeso={setPeso}
-              setSeries={setSeries}
-              setRepeticiones={setRepeticiones}
-              setObservacion={setObservacion}
-            />
-            // </SwiperSlide>
-          ))}
-        {/* </Swiper> */}
+      {variant !== "front" && <NavDesktop />}
+      <div className={`h-full ${variant !== "front" ? 'md:mt-16 mt-[75px]' : 'mt-14'}`}>
+        <SelectorEntrenos entreno={entreno} setEntreno={setEntreno} />
+        <div className="flex flex-wrap gap-16 mt-6 justify-center md:justify-normal">
+          {ejerciciosEntreno.length > 0 &&
+            ejerciciosEntreno.map((ejercicio) => (
+              <CardSaveEjercicio
+                key={`slc-${ejercicio.id}`}
+                datosEjercicio={ejercicio}
+                onClick={(e) => handleSubmit(e, ejercicio.id)}
+                setPeso={setPeso}
+                setSeries={setSeries}
+                setRepeticiones={setRepeticiones}
+                setObservacion={setObservacion}
+              />
+            ))}
+        </div>
       </div>
-    </div>
     </>
   );
 }
