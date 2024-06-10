@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Login from "./Login";
 import Registrar from "./Registrar";
 import Button from "../components/ui/button/Button";
+import MainContext from "../context/MainContext";
 
 const bodyStyle = {
   backgroundImage: 'url("../../img/home2.jpg")',
@@ -14,6 +15,11 @@ const bodyStyle = {
 
 export default function Home() {
   const [view, setView] = useState("initial");
+
+  const {
+    setEmailUser,
+    setUserCargo,
+  } = useContext(MainContext)
 
   const renderContent = () => {
     switch (view) {

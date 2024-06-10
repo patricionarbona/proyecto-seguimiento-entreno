@@ -69,7 +69,11 @@ export default function NavDesktop() {
                   to="/"
                   className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
                   aria-current="page"
-                  onClick={localStorage.getItem('email') ? localStorage.clear() : sessionStorage.clear()}
+                  onClick={() => {
+                    localStorage.getItem("dataUser") ? localStorage.removeItem("dataUser") : null
+                    sessionStorage.getItem("dataUser") ? sessionStorage.removeItem("dataUser") : null
+                  }}
+                  
                 >
                   Cerrar Sesión
                 </Link>

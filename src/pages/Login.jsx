@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { iniciarSesion } from "../utils/Peticiones";
 import { toast } from 'react-hot-toast';
@@ -8,11 +8,23 @@ import MainContext from "../context/MainContext";
 export default function Login() {
   const [emailLogin, setEmailLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [holdSesion, setHoldSesion] = useState(false)
   const navigate = useNavigate();
   const {
     setEmailUser,
     setUserCargo,
   } = useContext(MainContext)
+
+
+  useEffect(() => {
+    const dataUsuario = JSON.parse(localStorage.getItem("dataUser")) || JSON.parse(sessionStorage.getItem("dataUser"))
+    console.log(dataUsuario)
+    if(dataUsuario) {
+      setEmailUser(dataUsuario.email)
+      setUserCargo(dataUsuario.admin)
+      navigate("/front-page")
+    }
+  },[])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +32,8 @@ export default function Login() {
     console.log(response);
     if (response.message === "sesion iniciada") {
       setEmailUser(emailLogin)
-      console.log(response.admin === "0" ? false : true )
+      console.log(holdSesion)
+      holdSesion ? localStorage.setItem('dataUser', JSON.stringify({email: emailLogin, admin: response.admin})) : sessionStorage.setItem("dataUser", JSON.stringify({email: emailLogin, admin: response.admin}))
       setUserCargo(response.admin)
       navigate("/front-page");
     } else {
@@ -54,6 +67,15 @@ export default function Login() {
             required
           />
         </div>
+        <div>
+          <input
+            type="checkbox"
+            id="holdSesion"
+            value={holdSesion}
+            onChange={() => setHoldSesion(!holdSesion)}
+          />
+          <label htmlFor="holdSesion">Mantener sesion iniciada</label>
+          </div>
           <Button text={"Iniciar Sesión"} type={"submit"} />
       </form>
     </div>
