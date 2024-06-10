@@ -4,23 +4,24 @@ import MainContext from "../../context/MainContext";
 
 export default function SelectorEntrenos({ entreno, setEntreno }) {
   const [entrenos, setEntrenos] = useState([]);
-  const {
-    emailUser
-  } = useContext(MainContext)
+  const { emailUser } = useContext(MainContext);
 
   useEffect(() => {
     const fetchEntrenos = async () => {
       try {
-        const usuarioEmail = emailUser
+        const usuarioEmail = emailUser;
         const response = await recuperarEntrenos(usuarioEmail);
-        console.log(response)
+        console.log(response);
         setEntrenos(response);
+        if (response.length > 0) {
+          setEntreno(response[0].id); // Establece el primer entreno recuperado
+        }
       } catch (err) {
         console.error("Error al recuperar los entrenos:", err);
       }
     };
     fetchEntrenos();
-  }, []);
+  }, [emailUser, setEntreno]);
 
   return (
     <div className="flex flex-col md:flex-row items-start md:items-center">

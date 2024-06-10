@@ -30,6 +30,7 @@ export default function Entrenos() {
       }
     };
     fetchEjercicios(entreno);
+    // setEntreno()
   }, [entreno]);
 
   const handleSubmit = async (e, ejercicioId) => {
