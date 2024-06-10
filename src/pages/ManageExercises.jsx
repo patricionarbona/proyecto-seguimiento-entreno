@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import NavDesktop from "../components/NavDesktop/NavDesktop";
 import {
   borrarEjercicio,
@@ -8,10 +8,12 @@ import {
 import toast from "react-hot-toast";
 import AddExercise from "./AddExercise.jsx";
 import Button from "../components/ui/button/Button.jsx";
+import Buscador from "../components/Buscador/Buscador.jsx";
 
 export default function ManageExercises() {
   const [ejercicios, setEjercicios] = useState([]);
   const [isEdit, setIsEdit] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para el valor del buscador
   const [changeEjercicio, setChangeEjercicio] = useState({
     id: null,
     ejercicio: null,
@@ -105,11 +107,18 @@ export default function ManageExercises() {
     fetchEjercicios();
   }, []);
 
+  const filteredEjercicios = useMemo(() => {
+    return ejercicios.filter((ejercicio) =>
+      ejercicio.ejercicio.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [ejercicios, searchTerm]);
+
   return (
     <div className="flex flex-col h-[100vh]">
       <NavDesktop />
       <div className="md:mt-16 mt-[75px] flex flex-col gap-4">
         <AddExercise />
+        <Buscador setSearchTerm={setSearchTerm} /> {/* Pasamos la función de actualización */}
         <table className="w-full align-middle gap-4 border-separate border-spacing-y-4 bg-slate-50">
           <thead>
             <tr className="block md:table-row border-2 border-slate-300 p-2 my-0 md:my-4">
@@ -137,7 +146,7 @@ export default function ManageExercises() {
             </tr>
           </thead>
           <tbody>
-            {ejercicios.map((ejercicio) => {
+            {filteredEjercicios.map((ejercicio) => {
               return (
                 <tr
                   key={`exc-${ejercicio.id}`}
