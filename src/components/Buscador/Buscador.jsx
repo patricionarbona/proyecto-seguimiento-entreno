@@ -35,18 +35,24 @@ export default function Buscador({ setSearchTerm }) {
 
   return (
     <div className="flex gap-2 items-center">
-      <span className="text-slate-200">Buscar:</span>
+        <div
+        className="flex flex-col ml-6 md:flex-row items-start md:items-center"
+        >
+      <label htmlFor="inputSearch" className="">Buscar:</label>
       <input
+        id="inputSearch"
         onChange={debounceHandleChange}
-        className="bg-slate-300 text-slate-800 w-28 md:w-56"
+        className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1"
         type="text"
       />
+
+        </div>
       <button
         onClick={handleClick}
-        className="bg-slate-300 text-slate-800 hover:bg-slate-100 w-8"
+        className=""
       >
         <svg
-          className="mx-auto w-5"
+          className=" w-5 mt-6 md:mt-0"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="none"
