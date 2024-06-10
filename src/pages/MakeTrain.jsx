@@ -70,6 +70,7 @@ export default function MakeTrain() {
     const mensaje = responseCreate.message;
     if (mensaje === "1") {
       toast.success("Creado el entreno");
+      setEjerciciosSeleccionados([])
     } else if (mensaje === "0") {
       toast.error("Hubo un error durante la creación del entreno");
     } else if (mensaje === "2") {
