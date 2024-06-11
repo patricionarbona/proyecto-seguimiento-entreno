@@ -158,6 +158,7 @@ export default function ManageExercises() {
                         type="text"
                         placeholder={ejercicio.ejercicio}
                         value={changeEjercicio.ejercicio || ""}
+                        className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1"
                         onChange={(e) =>
                           setChangeEjercicio((prev) => ({
                             ...prev,
@@ -175,6 +176,7 @@ export default function ManageExercises() {
                         type="text"
                         placeholder={ejercicio.equipamiento}
                         value={changeEjercicio.equipamiento || ""}
+                        className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1"
                         onChange={(e) =>
                           setChangeEjercicio((prev) => ({
                             ...prev,
@@ -192,6 +194,7 @@ export default function ManageExercises() {
                         type="text"
                         placeholder={ejercicio.descripcion}
                         value={changeEjercicio.descripcion || ""}
+                        className="md:ml-2 w-11/12 h-8 border border-gray-300 rounded-md shadow-xs px-1"
                         onChange={(e) =>
                           setChangeEjercicio((prev) => ({
                             ...prev,
@@ -229,6 +232,7 @@ export default function ManageExercises() {
                         type="text"
                         placeholder={ejercicio.grupo}
                         value={changeEjercicio.grupo || ""}
+                        className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1"
                         onChange={(e) =>
                           setChangeEjercicio((prev) => ({
                             ...prev,
@@ -246,6 +250,7 @@ export default function ManageExercises() {
                         type="text"
                         placeholder={ejercicio.musculos}
                         value={changeEjercicio.musculos || ""}
+                        className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1"
                         onChange={(e) =>
                           setChangeEjercicio((prev) => ({
                             ...prev,

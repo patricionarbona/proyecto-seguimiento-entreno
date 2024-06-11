@@ -9,6 +9,7 @@ CREATE TABLE usuario (
 CREATE TABLE ejercicios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     ejercicio CHAR(100),
+    equipamiento CHAR(100),
     descripcion TEXT,
     foto CHAR(100),
     musculos CHAR(100)
@@ -54,7 +55,6 @@ CREATE TABLE usuario_entreno (
 
 CREATE TABLE entreno_historico (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    fk_usuario INT,
     fk_entreno INT,
     fk_ejercicio INT,
     peso DECIMAL(10,2),
@@ -62,7 +62,6 @@ CREATE TABLE entreno_historico (
     repeticiones INT,
     observacion VARCHAR(255),
     fecha DATE,
-    FOREIGN KEY (fk_usuario) REFERENCES usuario(id),
     FOREIGN KEY (fk_entreno) REFERENCES entreno(id),
     FOREIGN KEY (fk_ejercicio) REFERENCES ejercicios(id)
 );
