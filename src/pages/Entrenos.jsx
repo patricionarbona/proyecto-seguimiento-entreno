@@ -57,7 +57,7 @@ export default function Entrenos({ variant = "" }) {
   return (
     <>
       {variant !== "front" && <NavDesktop />}
-      <div className={`h-full ${variant !== "front" ? 'md:mt-28 mt-[90px] ml-4' : 'mt-14'}`}>
+      <div className={`h-full ${variant !== "front" ? 'md:mt-28 mt-[90px] ml-4' : 'mt-14 mx-16'}`}>
         <SelectorEntrenos entreno={entreno} setEntreno={setEntreno} />
         <div className="flex flex-wrap gap-16 mt-6 justify-center md:justify-normal">
           {ejerciciosEntreno.length > 0 &&

@@ -31,7 +31,7 @@ export default function CardSaveEjercicio({
           (isVolteado ? " [transform:rotateY(-180deg)]" : "")
         }
       >
-        <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] flex flex-col justify-center">
+        <div className="absolute bg-white h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] flex flex-col justify-center">
           <button
             onClick={handleVoltear}
             className={
@@ -54,7 +54,7 @@ export default function CardSaveEjercicio({
               />
             </svg>
           </button>
-          <div className="h-5/6 mb-5 flex flex-col items-center">
+          <div className="h-5/6 mb-5 flex flex-col items-center ">
             <h3>{nombreEjercicio}</h3>
             <img className="h-14 w-14" src={rutaImg} alt="" />
             {/* <h4>Músculos implicados</h4>
@@ -92,7 +92,7 @@ export default function CardSaveEjercicio({
           </div>
           <Button text={"Hecho"} onClick={onClick} />
         </div>
-        <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col">
+        <div className="absolute bg-white h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col ">
           <button
             onClick={handleVoltear}
             className={
