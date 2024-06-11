@@ -85,7 +85,7 @@ export default function Registrar() {
           />
         </div>
         <div className="flex flex-col gap-3 bottom-0">
-          <Button text={"Iniciar Sesión"} onClick={() => setView("login")} />
+          <Button text={"Iniciar Sesión"} onClick={() => setView("login")} type={"button"}/>
           <Button
             text="Registrar"
             variant="white"
