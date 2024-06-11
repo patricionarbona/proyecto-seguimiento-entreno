@@ -102,7 +102,7 @@ export default function NavDesktop() {
                   Gráficos
                 </Link>
               </li>
-              {userCargo && (
+              {userCargo === 1 && (
                 <li className="relative">
                   <button
                     onClick={toggleGestionar}
