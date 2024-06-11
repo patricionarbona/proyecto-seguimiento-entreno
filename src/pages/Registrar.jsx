@@ -25,7 +25,7 @@ export default function Registrar() {
       });
       console.log(responseCreate);
       if (responseCreate.message === "añadido usuario") {
-        navigate("/login");
+        setView("login")
         toast('Registro completado')
       }
     } else {

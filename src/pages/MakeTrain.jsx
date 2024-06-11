@@ -81,7 +81,7 @@ export default function MakeTrain() {
   return (
     <>
     <NavDesktop />
-      <div className="flex gap-6 p-6 mt-16">
+      <div className="flex gap-6 p-6 mt-24">
         {/* Sección de ejercicios disponibles */}
         <div className="">
           

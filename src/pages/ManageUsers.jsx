@@ -98,7 +98,7 @@ export default function ManageUsers() {
   return (
     <div className="flex flex-col h-[100vh]">
       <NavDesktop />
-      <div className="h-full md:mt-16 mt-[75px] mx-4">
+      <div className="h-full md:mt-24 mt-[90px] mx-4">
         <table className="w-full align-middle gap-4 border-separate border-spacing-y-4 bg-slate-50">
           <thead>
             <tr className="block md:table-row border-2 border-slate-300 p-2 my-0 md:my-4">

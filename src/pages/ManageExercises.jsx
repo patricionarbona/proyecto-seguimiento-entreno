@@ -116,7 +116,7 @@ export default function ManageExercises() {
   return (
     <div className="flex flex-col h-[100vh]">
       <NavDesktop />
-      <div className="md:mt-18 mt-[75px] flex flex-col gap-4 mx-4">
+      <div className="md:mt-28 mt-[100px] flex flex-col gap-4 mx-4">
         <AddExercise />
         <Buscador setSearchTerm={setSearchTerm} /> {/* Pasamos la función de actualización */}
         <table className="w-full align-middle gap-4 border-separate border-spacing-y-4 bg-slate-50 ">
