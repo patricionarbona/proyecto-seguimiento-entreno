@@ -25,6 +25,7 @@ export default function Home() {
       default:
         return (
           <div className="flex flex-col items-center justify-evenly  h-full">
+            <img src="/img/logo.png" alt="" className="h-28" />
             <h1 className="text-3xl">Bienvenido a Gym Plan</h1>
             <p className="text-base">
               Gym Plan es una aplicación que da al usuario la libertad de crear

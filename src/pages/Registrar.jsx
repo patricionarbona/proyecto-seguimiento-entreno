@@ -36,6 +36,8 @@ export default function Registrar() {
 
   return (
     <div className="flex flex-col items-center gap-8 h-full justify-center">
+            <img src="/img/logo.png" alt="" className="h-28" />
+
       <form
         onSubmit={handleSubmit}
         className="flex flex-col justify-evenly gap-4 relative h-96"

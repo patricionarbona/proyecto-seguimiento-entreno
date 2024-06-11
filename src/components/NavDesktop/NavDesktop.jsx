@@ -5,7 +5,7 @@ import MainContext from "../../context/MainContext";
 export default function NavDesktop() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isGestionarOpen, setIsGestionarOpen] = useState(false);
-  const { userCargo } = useContext(MainContext);
+  const { userCargo,setView } = useContext(MainContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -70,6 +70,7 @@ export default function NavDesktop() {
                   className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
                   aria-current="page"
                   onClick={() => {
+                    setView("initial")
                     localStorage.getItem("dataUser") ? localStorage.removeItem("dataUser") : null
                     sessionStorage.getItem("dataUser") ? sessionStorage.removeItem("dataUser") : null
                   }}

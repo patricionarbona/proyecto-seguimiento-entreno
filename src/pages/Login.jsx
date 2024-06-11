@@ -49,6 +49,8 @@ export default function Login() {
 
   return (
     <div className="flex flex-col items-center gap-8 h-full justify-center">
+      <img src="/img/logo.png" alt="" className="h-28" />
+
       <form
         onSubmit={handleSubmit}
         className="flex flex-col justify-evenly gap-3 relative h-96"
