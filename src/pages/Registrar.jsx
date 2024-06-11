@@ -3,6 +3,7 @@ import { comprobarEmail, crearUsuario } from "../utils/Peticiones";
 import { useNavigate } from "react-router-dom";
 import MainContext from "../context/MainContext";
 import Button from "../components/ui/button/Button";
+import toast from "react-hot-toast";
 
 export default function Registrar() {
   const [username, setUsername] = useState("");
@@ -25,6 +26,7 @@ export default function Registrar() {
       console.log(responseCreate);
       if (responseCreate.message === "añadido usuario") {
         navigate("/login");
+        toast('Registro completado')
       }
     } else {
       console.log("ya existe un usario con ese correo");
@@ -85,7 +87,7 @@ export default function Registrar() {
           <Button
             text="Registrar"
             variant="white"
-            onClick={() => setView("register")}
+            onClick={handleSubmit}
             type={"submit"}
           />
         </div>
