@@ -49,12 +49,11 @@ export default function Login() {
 
   return (
     <div className="flex flex-col items-center gap-8 h-full justify-center">
-      <form onSubmit={handleSubmit}
+      <form
+        onSubmit={handleSubmit}
         className="flex flex-col justify-evenly gap-3"
       >
-        <div
-        className="flex flex-col md:flex-row items-start md:items-center"
-        >
+        <div className="flex flex-col md:flex-row items-start md:items-center">
           <label htmlFor="email">Correo electrónico</label>
           <input
             type="email"
@@ -65,9 +64,7 @@ export default function Login() {
             required
           />
         </div>
-        <div
-        className="flex flex-col md:flex-row items-start md:items-center justify-between"
-        >
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
           <label htmlFor="password">Contraseña</label>
           <input
             type="password"
@@ -85,7 +82,9 @@ export default function Login() {
             value={holdSesion}
             onChange={() => setHoldSesion(!holdSesion)}
           />
-          <label htmlFor="holdSesion" className="ml-2">Mantener sesion iniciada</label>
+          <label htmlFor="holdSesion" className="ml-2">
+            Mantener sesion iniciada
+          </label>
         </div>
         <Button text={"Iniciar Sesión"} type={"submit"} />
         <Button
