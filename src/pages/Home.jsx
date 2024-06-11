@@ -31,7 +31,7 @@ export default function Home() {
               su propio entrenamiento con una lista de ejercicios y consejos de
               ejecución, además de ofrecer un historial para ver su evolución.
             </p>
-            <div>
+            <div className="flex gap-4">
               <Button text="Iniciar sesión" onClick={() => setView("login")} />
               <Button
                 text="Registrar"
@@ -50,7 +50,7 @@ export default function Home() {
         style={bodyStyle}
         className="flex justify-center md:justify-center items-center"
       >
-        <div className="flex flex-col items-center justify-center w-96 md:w-1/3 lg:w-1/5 h-1/2 sm:mr-10 rounded-xl shadow-xl bg-white">
+        <div className="flex flex-col items-center justify-center w-96 md:w-1/3 lg:w-1/5 h-1/3 sm:mr-10 rounded-xl shadow-xl bg-white">
           <div className="flex flex-col items-center justify-between w-4/5 gap-8 h-full">
             <div className="h-full w-full">{renderContent()}</div>
           </div>

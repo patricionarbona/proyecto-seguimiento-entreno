@@ -51,7 +51,7 @@ export default function Login() {
     <div className="flex flex-col items-center gap-8 h-full justify-center">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col justify-evenly gap-3"
+        className="flex flex-col justify-evenly gap-3 relative h-96"
       >
         <div className="flex flex-col md:flex-row items-start md:items-center">
           <label htmlFor="email">Correo electrónico</label>
@@ -86,12 +86,14 @@ export default function Login() {
             Mantener sesion iniciada
           </label>
         </div>
-        <Button text={"Iniciar Sesión"} type={"submit"} />
-        <Button
-          text="Registrar"
-          variant="white"
-          onClick={() => setView("register")}
-        />
+        <div className="flex flex-col gap-3 bottom-0">
+          <Button text={"Iniciar Sesión"} type={"submit"} />
+          <Button
+            text="Registrar"
+            variant="white"
+            onClick={() => setView("register")}
+          />
+        </div>
       </form>
     </div>
   );

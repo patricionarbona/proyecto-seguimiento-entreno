@@ -9,7 +9,7 @@ export default function Registrar() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const {setView} = useContext(MainContext)
+  const { setView } = useContext(MainContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,49 +33,62 @@ export default function Registrar() {
   };
 
   return (
-    <div
-    >
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: "15px" }}>
-          <label htmlFor="username">Nombre de usuario</label>
+    <div className="flex flex-col items-center gap-8 h-full justify-center">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col justify-evenly gap-4 relative h-96"
+      >
+        <div className="flex flex-col md:flex-row items-start md:items-center">
+          <label className="w-32" htmlFor="username">
+            Nombre de usuario
+          </label>
           <input
             type="text"
             id="username"
+            className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
             style={{ width: "100%", padding: "8px", marginTop: "5px" }}
           />
         </div>
-        <div style={{ marginBottom: "15px" }}>
-          <label htmlFor="email">Correo electrónico</label>
+        <div className="flex flex-col md:flex-row items-start md:items-center">
+          <label className="w-32" htmlFor="email">
+            Correo electrónico
+          </label>
           <input
             type="email"
             id="email"
+            className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             style={{ width: "100%", padding: "8px", marginTop: "5px" }}
           />
         </div>
-        <div style={{ marginBottom: "15px" }}>
-          <label htmlFor="password">Contraseña</label>
+        <div className="flex flex-col md:flex-row items-start md:items-center">
+          <label className="w-32" htmlFor="password">
+            Contraseña
+          </label>
           <input
             type="password"
             id="password"
+            className="md:ml-2 w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             style={{ width: "100%", padding: "8px", marginTop: "5px" }}
           />
         </div>
-        <Button text={"Iniciar Sesión"} onClick={() => setView("login")}/>
-        <Button
-          text="Registrar"
-          variant="white"
-          onClick={() => setView("register")}
-          type={"submit"}
-        />
+        <div className="flex flex-col gap-3 bottom-0">
+          <Button text={"Iniciar Sesión"} onClick={() => setView("login")} />
+          <Button
+            text="Registrar"
+            variant="white"
+            onClick={() => setView("register")}
+            type={"submit"}
+          />
+        </div>
       </form>
     </div>
   );
