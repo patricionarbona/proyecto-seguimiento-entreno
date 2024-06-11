@@ -21,3 +21,7 @@
 .perspective-right {
     transform: perspective(1800px) rotateY(-25deg);
 }
+
+* {
+    font-family: 'Montserrat';
+}
