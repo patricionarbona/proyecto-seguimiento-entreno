@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { comprobarEmail, crearUsuario } from "../utils/Peticiones";
 import { useNavigate } from "react-router-dom";
+import MainContext from "../context/MainContext";
+import Button from "../components/ui/button/Button";
 
 export default function Registrar() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const {setView} = useContext(MainContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,20 +69,13 @@ export default function Registrar() {
             style={{ width: "100%", padding: "8px", marginTop: "5px" }}
           />
         </div>
-        <button
-          type="submit"
-          style={{
-            width: "100%",
-            padding: "10px",
-            backgroundColor: "#28a745",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          Registrarse
-        </button>
+        <Button text={"Iniciar Sesión"} onClick={() => setView("login")}/>
+        <Button
+          text="Registrar"
+          variant="white"
+          onClick={() => setView("register")}
+          type={"submit"}
+        />
       </form>
     </div>
   );

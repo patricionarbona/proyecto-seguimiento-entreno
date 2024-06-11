@@ -5,6 +5,7 @@ const MainContext = createContext();
 export function MainContextProvider({ children }) {
   const [emailUser, setEmailUser] = useState("");
   const [userCargo, setUserCargo] = useState(false);
+  const [view, setView] = useState("initial");
 
   useEffect(() => {
     const dataUsuario = JSON.parse(localStorage.getItem("dataUser")) || JSON.parse(sessionStorage.getItem("dataUser"))
@@ -21,6 +22,8 @@ export function MainContextProvider({ children }) {
         setEmailUser,
         userCargo,
         setUserCargo,
+        view,
+        setView,
          }}>
       {children}
     </MainContext.Provider>

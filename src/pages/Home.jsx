@@ -14,12 +14,7 @@ const bodyStyle = {
 };
 
 export default function Home() {
-  const [view, setView] = useState("initial");
-
-  const {
-    setEmailUser,
-    setUserCargo,
-  } = useContext(MainContext)
+  const { view, setView } = useContext(MainContext);
 
   const renderContent = () => {
     switch (view) {
@@ -32,9 +27,18 @@ export default function Home() {
           <div className="flex flex-col items-center justify-evenly  h-full">
             <h1 className="text-3xl">Bienvenido a Gym Plan</h1>
             <p className="text-base">
-            Gym Plan es una aplicación que da al usuario la libertad de crear su propio entrenamiento
-             con una lista de ejercicios y consejos de ejecución, además de ofrecer un historial para ver su evolución.
+              Gym Plan es una aplicación que da al usuario la libertad de crear
+              su propio entrenamiento con una lista de ejercicios y consejos de
+              ejecución, además de ofrecer un historial para ver su evolución.
             </p>
+            <div>
+              <Button text="Iniciar sesión" onClick={() => setView("login")} />
+              <Button
+                text="Registrar"
+                variant="white"
+                onClick={() => setView("register")}
+              />
+            </div>
           </div>
         );
     }
@@ -44,55 +48,11 @@ export default function Home() {
     <>
       <div
         style={bodyStyle}
-        className="flex justify-center md:justify-end items-center"
+        className="flex justify-center md:justify-center items-center"
       >
-        <div className="flex flex-col items-center justify-center w-96 md:w-1/3 lg:w-1/5 h-1/2 sm:mr-10 rounded-xl shadow-xl bg-slate-400">
-          <div className="flex flex-col items-center justify-between w-4/5 gap-8 bg-red-400 h-full">
-            <div className="h-full bg-teal-200 w-full">
-            {renderContent()}
-            </div>
-            <div className="flex justify-between mx-auto gap-8 mb-8">
-              {view === "initial" && (
-                <>
-                  <Button
-                    text="Iniciar sesión"
-                    onClick={() => setView("login")}
-                  />
-                  <Button
-                    text="Registrar"
-                    variant="white"
-                    onClick={() => setView("register")}
-                  />
-                </>
-              )}
-              {view === "register" && (
-                <>
-                <Button
-                  text="Iniciar sesión"
-                  onClick={() => setView("login")}
-                />
-                <Button
-                  text="Registrar"
-                  variant="white"
-                  onClick={() => setView("register")}
-                />
-              </>
-                
-              )}
-              {view === "login" && (
-                <>
-                <Button
-                  text="Iniciar sesión"
-                  onClick={() => setView("login")}
-                />
-                <Button
-                  text="Registrar"
-                  variant="white"
-                  onClick={() => setView("register")}
-                />
-              </>
-              )}
-            </div>
+        <div className="flex flex-col items-center justify-center w-96 md:w-1/3 lg:w-1/5 h-1/2 sm:mr-10 rounded-xl shadow-xl bg-white">
+          <div className="flex flex-col items-center justify-between w-4/5 gap-8 h-full">
+            <div className="h-full w-full">{renderContent()}</div>
           </div>
         </div>
       </div>
