@@ -85,8 +85,8 @@ export default function CardEjercicio({
               />
             </svg>
           </button>
-          <h3>Instrucciones</h3>
-          <p className="leading-8 text-ellipsis overflow-hidden overflow-y-scroll h-5/6">
+          <h3 className="mx-2">Instrucciones</h3>
+          <p className="mx-2 leading-8 text-ellipsis overflow-hidden overflow-y-scroll h-5/6">
             {recomendacion}
           </p>
           <Button text={variantText[variant]} onClick={onClick} />
