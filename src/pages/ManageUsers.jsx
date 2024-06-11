@@ -124,7 +124,7 @@ export default function ManageUsers() {
                   key={`usr-${usuario.id}`}
                   className="block md:table-row border-2 border-slate-300 p-2 my-2 hover:bg-slate-200"
                 >
-                  <td className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500">
+                  <td className="block md:table-cell text-center md:text-left md:border-0 my-2 border-slate-500">
                     {isEditId === usuario.id ? (
                       <input
                         type="text"
@@ -141,7 +141,7 @@ export default function ManageUsers() {
                       usuario.nombre
                     )}
                   </td>
-                  <td className=" block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500">
+                  <td className=" block md:table-cell text-center md:text-left  md:border-0 my-2 border-slate-500">
                     {isEditId === usuario.id ? (
                       <input
                         type="text"
@@ -158,7 +158,7 @@ export default function ManageUsers() {
                       usuario.email
                     )}
                   </td>
-                  <td className=" block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500">
+                  <td className=" block md:table-cell text-center md:text-left  md:border-0 my-2 border-slate-500">
                     {isEditId === usuario.id ? (
                       <select
                         onChange={(e) => {

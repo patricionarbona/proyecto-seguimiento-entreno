@@ -169,7 +169,7 @@ export default function ManageExercises() {
                       ejercicio.ejercicio
                     )}
                   </td>
-                  <td className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500">
+                  <td className="block md:table-cell text-center md:text-left  md:border-0 my-2 border-slate-500">
                     {isEdit === ejercicio.id ? (
                       <input
                         type="text"
@@ -186,7 +186,7 @@ export default function ManageExercises() {
                       ejercicio.equipamiento
                     )}
                   </td>
-                  <td className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500">
+                  <td className="block md:table-cell  md:text-left  md:border-0 my-2 border-slate-500">
                     {isEdit === ejercicio.id ? (
                       <input
                         type="text"
@@ -203,10 +203,11 @@ export default function ManageExercises() {
                       ejercicio.descripcion
                     )}
                   </td>
-                  <td className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500">
+                  <td className={`block md:table-cell text-center md:text-left ${isEdit? "": "border"} md:border-0 my-2 border-slate-500`}>
                     {isEdit === ejercicio.id ? (
                       <input
                         type="file"
+                        className="text-ellipsis w-full"
                         onChange={(e) =>
                           setChangeEjercicio((prev) => ({
                             ...prev,
@@ -222,7 +223,7 @@ export default function ManageExercises() {
                       />
                     )}
                   </td>
-                  <td className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500">
+                  <td className="block md:table-cell text-center md:text-left  md:border-0 my-2 border-slate-500">
                     {isEdit === ejercicio.id ? (
                       <input
                         type="text"
@@ -239,7 +240,7 @@ export default function ManageExercises() {
                       ejercicio.grupo
                     )}
                   </td>
-                  <td className="block md:table-cell text-center md:text-left border md:border-0 my-2 border-slate-500">
+                  <td className="block md:table-cell text-center md:text-left  md:border-0 my-2 border-slate-500">
                     {isEdit === ejercicio.id ? (
                       <input
                         type="text"
