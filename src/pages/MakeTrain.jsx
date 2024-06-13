@@ -12,6 +12,7 @@ import toast from "react-hot-toast";
 import CardEjercicio from "../components/CardEjercicio/CardEjercicio";
 import NavDesktop from "../components/NavDesktop/NavDesktop";
 import MainContext from "../context/MainContext";
+import Button from "../components/ui/button/Button";
 
 export default function MakeTrain() {
   const [entreno, setEntreno] = useState("");
@@ -60,6 +61,7 @@ export default function MakeTrain() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (entreno.trim() === "") return 
     const email = emailUser;
     const data = {
       email: email,
@@ -111,12 +113,7 @@ export default function MakeTrain() {
               className="md:ml-2 w-52 md:w-60 h-8 border border-gray-300 rounded-md shadow-xs px-1 mr-1"
             />
           </div>
-          <button
-              type="submit"
-              className="border-2 border-blue-400 bg-blue-400 py-1 rounded text-gray-50 hover:bg-blue-300 px-1 text-base mr-1"
-            >
-              Crear Entreno
-            </button>
+          <Button type={"submit"} text={"Crear Entreno"} />
             <div className="flex-1 overflow-y-auto items-center mt-4">
               <Swiper
                 direction={'vertical'}
