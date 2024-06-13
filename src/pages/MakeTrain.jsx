@@ -57,6 +57,7 @@ export default function MakeTrain() {
       (ejercicio, i) => i !== index
     );
     setEjerciciosSeleccionados(newEjerciciosSeleccionados);
+    toast.success("Ejercicio deseleccionado")
   };
 
   const handleSubmit = async (e) => {
