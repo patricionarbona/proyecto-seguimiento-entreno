@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 
 export default function NavDesktop() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isGestionarOpen, setIsGestionarOpen] = useState(false);
-  const { userCargo,setView } = useContext(MainContext);
+  const { userCargo,setView,emailUser } = useContext(MainContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -14,6 +14,10 @@ export default function NavDesktop() {
   const toggleGestionar = () => {
     setIsGestionarOpen(!isGestionarOpen);
   };
+
+  useEffect(() => {
+    console.log(emailUser)
+  },[])
 
   return (
     <>
