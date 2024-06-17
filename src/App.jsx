@@ -1,65 +1,65 @@
-import './App.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import "./App.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
-import Registrar from './pages/Registrar.jsx';
-import Login from './pages/Login.jsx';
-import FrontPage from './pages/FrontPage.jsx';
-import AddExercise from './pages/AddExercise.jsx';
-import MakeTrain from "./pages/MakeTrain.jsx"
-import { Toaster } from 'react-hot-toast';
-import Entrenos from './pages/Entrenos.jsx';
-import { MainContextProvider } from './context/MainContext.jsx';
-import ManageUsers from './pages/ManageUsers.jsx';
-import ManageExercises from './pages/ManageExercises.jsx';
+import Registrar from "./pages/Registrar.jsx";
+import Login from "./pages/Login.jsx";
+import FrontPage from "./pages/FrontPage.jsx";
+import AddExercise from "./pages/AddExercise.jsx";
+import MakeTrain from "./pages/MakeTrain.jsx";
+import { Toaster } from "react-hot-toast";
+import Entrenos from "./pages/Entrenos.jsx";
+import { MainContextProvider } from "./context/MainContext.jsx";
+import ManageUsers from "./pages/ManageUsers.jsx";
+import ManageExercises from "./pages/ManageExercises.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    errorElement: <NotFoundPage />
+    errorElement: <NotFoundPage />,
   },
   {
     path: "/registrar",
-    element: <Registrar />
+    element: <Registrar />,
   },
   {
     path: "/login",
-    element: <Login />
+    element: <Login />,
   },
   {
     path: "/front-page",
-    element: <FrontPage />
+    element: <FrontPage />,
   },
   {
     path: "/add-exercise",
-    element: <AddExercise />
+    element: <AddExercise />,
   },
   {
     path: "/make-train",
-    element: <MakeTrain />
+    element: <MakeTrain />,
   },
   {
     path: "/my-trains",
-    element: <Entrenos />
+    element: <Entrenos />,
   },
   {
     path: "/manage-users",
-    element: <ManageUsers />
+    element: <ManageUsers />,
   },
   {
     path: "/manage-exercises",
-    element: <ManageExercises />
-  }
+    element: <ManageExercises />,
+  },
 ]);
 
 function App() {
   return (
     <>
-    <MainContextProvider>
-      <RouterProvider router={router} />
-      <Toaster position="top-center" />
-    </MainContextProvider>
+      <MainContextProvider>
+        <RouterProvider router={router} />
+        <Toaster position="top-center" />
+      </MainContextProvider>
     </>
   );
 }

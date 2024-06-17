@@ -20,8 +20,8 @@ export default function ManageUsers() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!emailUser) navigate("/")
-  },[])
+    if (!emailUser) navigate("/");
+  }, []);
 
   const handleClickDelete = (usuarioId) => {
     console.log(usuarioId);

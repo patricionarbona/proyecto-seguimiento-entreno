@@ -60,7 +60,11 @@ export default function CardEjercicio({
             <h4>Músculos implicados</h4>
             <p className="capitalize">{musculo}</p>
           </div>
-          <Button text={variantText[variant]} onClick={onClick} variant={variant} />
+          <Button
+            text={variantText[variant]}
+            onClick={onClick}
+            variant={variant}
+          />
         </div>
         <div className="absolute h-full w-full rounded-xl shadow-xl [z-index:2] [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col">
           <button

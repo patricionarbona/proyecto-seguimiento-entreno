@@ -8,30 +8,36 @@ export function MainContextProvider({ children }) {
   const [view, setView] = useState("initial");
 
   function getInitialEmail() {
-    const dataUsuario = JSON.parse(localStorage.getItem("dataUser")) || JSON.parse(sessionStorage.getItem("dataUser"))
-    console.log(JSON.parse(sessionStorage.getItem("dataUser")))
-    if(dataUsuario) {
-      return dataUsuario.email
+    const dataUsuario =
+      JSON.parse(localStorage.getItem("dataUser")) ||
+      JSON.parse(sessionStorage.getItem("dataUser"));
+    console.log(JSON.parse(sessionStorage.getItem("dataUser")));
+    if (dataUsuario) {
+      return dataUsuario.email;
     }
   }
 
   function getInitialAdmin() {
-    const dataUsuario = JSON.parse(localStorage.getItem("dataUser")) || JSON.parse(sessionStorage.getItem("dataUser"))
-    console.log(JSON.parse(sessionStorage.getItem("dataUser")))
-    if(dataUsuario) {
-      return dataUsuario.admin
+    const dataUsuario =
+      JSON.parse(localStorage.getItem("dataUser")) ||
+      JSON.parse(sessionStorage.getItem("dataUser"));
+    console.log(JSON.parse(sessionStorage.getItem("dataUser")));
+    if (dataUsuario) {
+      return dataUsuario.admin;
     }
   }
 
   return (
-    <MainContext.Provider value={{ 
-        emailUser, 
+    <MainContext.Provider
+      value={{
+        emailUser,
         setEmailUser,
         userCargo,
         setUserCargo,
         view,
         setView,
-         }}>
+      }}
+    >
       {children}
     </MainContext.Provider>
   );

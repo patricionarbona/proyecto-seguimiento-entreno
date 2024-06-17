@@ -25,8 +25,8 @@ export default function MakeTrain() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!emailUser) navigate("/")
-  },[])
+    if (!emailUser) navigate("/");
+  }, []);
 
   useEffect(() => {
     const fetchEjercicios = async () => {

@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import MainContext from "../context/MainContext.jsx";
 
 export default function ManageExercises() {
-  const { emailUser } = useContext(MainContext)
+  const { emailUser } = useContext(MainContext);
   const [ejercicios, setEjercicios] = useState([]);
   const [isEdit, setIsEdit] = useState(null);
   const [searchTerm, setSearchTerm] = useState(""); // Estado para el valor del buscador
@@ -30,8 +30,8 @@ export default function ManageExercises() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!emailUser) navigate("/")
-  },[])
+    if (!emailUser) navigate("/");
+  }, []);
 
   const handleClickDelete = (ejercicioId) => {
     console.log(ejercicioId);
@@ -127,7 +127,8 @@ export default function ManageExercises() {
       <NavDesktop />
       <div className="md:mt-28 mt-[100px] flex flex-col gap-4 mx-4">
         <AddExercise />
-        <Buscador setSearchTerm={setSearchTerm} /> {/* Pasamos la función de actualización */}
+        <Buscador setSearchTerm={setSearchTerm} />{" "}
+        {/* Pasamos la función de actualización */}
         <table className="w-full align-middle gap-4 border-separate border-spacing-y-4 bg-slate-50 ">
           <thead>
             <tr className="block md:table-row border-2 border-slate-300 p-2 my-0 md:my-4">
@@ -215,7 +216,11 @@ export default function ManageExercises() {
                       ejercicio.descripcion
                     )}
                   </td>
-                  <td className={`block md:table-cell text-center md:text-left ${isEdit? "": "border"} md:border-0 my-2 border-slate-500`}>
+                  <td
+                    className={`block md:table-cell text-center md:text-left ${
+                      isEdit ? "" : "border"
+                    } md:border-0 my-2 border-slate-500`}
+                  >
                     {isEdit === ejercicio.id ? (
                       <input
                         type="file"
