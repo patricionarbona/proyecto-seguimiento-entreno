@@ -4,6 +4,7 @@ import getUsuarios, { borrarUsuario, editarUsuario } from "../utils/Peticiones";
 import MainContext from "../context/MainContext";
 import toast from "react-hot-toast";
 import Button from "../components/ui/button/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function ManageUsers() {
   const { emailUser } = useContext(MainContext);
@@ -15,6 +16,12 @@ export default function ManageUsers() {
     email: null,
     cargo: null,
   });
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!emailUser) navigate("/")
+  },[])
 
   const handleClickDelete = (usuarioId) => {
     console.log(usuarioId);

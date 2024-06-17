@@ -1,7 +1,18 @@
+import { useContext, useEffect } from "react";
 import NavDesktop from "../components/NavDesktop/NavDesktop"
 import Entrenos from "./Entrenos"
+import MainContext from "../context/MainContext";
+import { useNavigate } from "react-router-dom";
 
 export default function FrontPage() {
+  const { emailUser } = useContext(MainContext);
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    if(!emailUser) navigate("/")
+  },[])
+    
     return(
         <>
             <NavDesktop />

@@ -13,6 +13,7 @@ import CardEjercicio from "../components/CardEjercicio/CardEjercicio";
 import NavDesktop from "../components/NavDesktop/NavDesktop";
 import MainContext from "../context/MainContext";
 import Button from "../components/ui/button/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function MakeTrain() {
   const [entreno, setEntreno] = useState("");
@@ -20,6 +21,12 @@ export default function MakeTrain() {
   const [ejerciciosSeleccionados, setEjerciciosSeleccionados] = useState([]);
   const [grupo, setGrupo] = useState("");
   const { emailUser } = useContext(MainContext);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!emailUser) navigate("/")
+  },[])
 
   useEffect(() => {
     const fetchEjercicios = async () => {

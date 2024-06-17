@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SelectorEntrenos from "../components/Selectores/SelectorEntrenos";
 import {
   guardarEjercicioEntreno,
@@ -6,22 +6,28 @@ import {
 } from "../utils/Peticiones";
 import CardSaveEjercicio from "../components/CardEjercicio/CardSaveExercise";
 import NavDesktop from "../components/NavDesktop/NavDesktop";
+import { useNavigate } from "react-router-dom";
+import MainContext from "../context/MainContext";
 
 export default function Entrenos({ variant = "" }) {
+  const { emailUser } = useContext(MainContext);
   const [entreno, setEntreno] = useState("");
   const [ejerciciosEntreno, setEjerciciosEntreno] = useState([]);
   const [peso, setPeso] = useState(0);
   const [series, setSeries] = useState(0);
   const [repeticiones, setRepeticiones] = useState(0);
   const [observacion, setObservacion] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!emailUser) navigate("/")
+  },[])
 
   useEffect(() => {
     const fetchEjercicios = async (entrenoId) => {
       if (!entrenoId) return;
       try {
-        console.log(entrenoId);
         const response = await recuperarEjerciciosEntreno(entrenoId);
-        console.log(response);
         setEjerciciosEntreno(response);
       } catch (err) {
         console.error("Error al recuperar los ejercicios del entreno:", err);
@@ -31,11 +37,6 @@ export default function Entrenos({ variant = "" }) {
   }, [entreno]);
 
   const handleSubmit = async (e, ejercicioId) => {
-    console.log(entreno);
-    console.log(ejercicioId)
-    console.log(e)
-    console.log(peso)
-    console.log(typeof(peso))
     const datosEjercicio = {
         id: ejercicioId,
         idEntreno: entreno,
@@ -44,7 +45,6 @@ export default function Entrenos({ variant = "" }) {
         repeticiones: repeticiones,
         observacion: observacion
     }
-    console.log(datosEjercicio)
 
     try {
       const response = await guardarEjercicioEntreno(datosEjercicio);

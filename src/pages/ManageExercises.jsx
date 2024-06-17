@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import NavDesktop from "../components/NavDesktop/NavDesktop";
 import {
   borrarEjercicio,
@@ -9,8 +9,11 @@ import toast from "react-hot-toast";
 import AddExercise from "./AddExercise.jsx";
 import Button from "../components/ui/button/Button.jsx";
 import Buscador from "../components/Buscador/Buscador.jsx";
+import { useNavigate } from "react-router-dom";
+import MainContext from "../context/MainContext.jsx";
 
 export default function ManageExercises() {
+  const { emailUser } = useContext(MainContext)
   const [ejercicios, setEjercicios] = useState([]);
   const [isEdit, setIsEdit] = useState(null);
   const [searchTerm, setSearchTerm] = useState(""); // Estado para el valor del buscador
@@ -23,6 +26,12 @@ export default function ManageExercises() {
     musculos: null,
     foto: null,
   });
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!emailUser) navigate("/")
+  },[])
 
   const handleClickDelete = (ejercicioId) => {
     console.log(ejercicioId);
